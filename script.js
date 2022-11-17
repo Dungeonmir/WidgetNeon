@@ -129,9 +129,9 @@ const btn = createTag('selectBtnStyleBtn', 'button', selectColorDiv)
            
         }
         textImage.style.textShadow = (`
-        0px 0px 4px rgb(${ligther(0, 1)}, ${ligther(1, 1)}, ${ligther(2, 1)}), 
-        0px 0px 20px rgb(${ligther(0, 2)}, ${ligther(1, 2)}, ${ligther(2, 2)}),
-        0px 0px 40px rgb(${ligther(0, 3)}, ${ligther(1, 3)}, ${ligther(2, 3)})
+        0px 0px 4px rgba(${ligther(0, 1)}, ${ligther(1, 1)}, ${ligther(2, 1)},0.7), 
+        0px 0px 20px rgba(${ligther(0, 2)}, ${ligther(1, 2)}, ${ligther(2, 2)},0.7),
+        0px 0px 40px rgba(${ligther(0, 3)}, ${ligther(1, 3)}, ${ligther(2, 3)},0.7)
         `).toString()
         
     })
