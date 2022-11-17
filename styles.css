@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bad+Script&family=Caveat&family=El+Messiri&family=Marck+Script&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bad+Script&family=Caveat&family=Comfortaa&family=Comforter+Brush&family=El+Messiri&family=Marck+Script&family=Poiret+One&family=Ruslan+Display&family=Seymour+One&display=swap');
 
 .pluginBase{
     background-color: red;
@@ -10,7 +10,12 @@
     align-items:  center;
     justify-content: center;
 }
-
+.flexAround{
+  display: flex;
+  flex-wrap:  wrap;
+  align-items:  center;
+  justify-content: space-between;
+}
 .imgTag{
     width: 500px;
     height: 500px;
@@ -65,6 +70,7 @@
     transition: all 0.2s;
     outline: none;
     box-shadow: 0px 0px 35px 0px rgba(17, 55, 193, 0.5);
+    border-bottom: 1px solid darkblue;
 }
 .inputStyle::placeholder {
 	color:#bcbcbc;
@@ -109,12 +115,11 @@
     height: 2rem;
     margin: 2px;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 6px;
     transition: all 0.25s;
 }
 .selectBtnStyleBtn:hover{
-    outline: solid 2px darkblue;
-    border-radius: 6px;
+    border-radius: 50%;
     transition: all 0.25s;
 }
 .selectBtnStyleBtn:active{
