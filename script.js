@@ -19,8 +19,16 @@ const pluginData={
         'https://i.ibb.co/svSwVjN/00102-623051735-wall-backgroun-1.png', 
         'https://i.ibb.co/VwzXDB7/00098-763098539-wall-backgroun-1.png',
     ],
-    textColors: ['rgb(250, 250, 250)','rgb(194, 30, 86)', 'rgb(0, 0, 255)', 'rgb(0, 0, 139)', 'rgb(255, 195,0)'],
-    currentText: 'Твой текст',
+    textColors: [
+        'rgba(3,231,71,255)', 
+        'rgba(6,205,248,255)', 
+        'rgba(4,1,255,255)', 
+        'rgba(253,51,53,255)', 
+        'rgba(248,1,186,255)', 
+        'rgba(204,216,230,255)', 
+        'rgba(255,159,28,255)', 
+        'rgba(248,5,46,255)', 
+        'rgba(253,212,131,255)'],
     textFonts: [
         `'Bad Script', cursive`,
         `'Amatic SC', cursive`,
@@ -29,24 +37,18 @@ const pluginData={
         `'Marck Script', cursive`,
         `'Poiret One', cursive`,
     ],
-    textSizes:[
-        `xx-small`,
-        `x-small`,
-        `small`,
-        `medium`,
-        `large`,
-        `x-large`,
-        `xx-large`,
-        `xxx-large`,
-    ],
-    startText: "Твой текст"
+    textSizes:{
+        min: 12,
+        max: 70,
+        step: 1,
+    },
+    startText: "Введите ваш текст"
 }
 
 //Создание блоков для изображения
 const imageTag = createTag('imgTag', 'div', pluginBase)
 const imgg = createTag('img', 'img', imageTag)
 const textImage = createTag('imgText', 'h3', imageTag)
-const startText = 
 textImage.innerText = pluginData.startText
 imgg.src = pluginData.images[1]
 
@@ -54,40 +56,46 @@ imgg.src = pluginData.images[1]
 const settingsTag = createTag(['settingsTag','flexCenter'], 'div', pluginBase)
 const inputText = createTag('inputStyle', 'input', settingsTag)
 inputText.type='text'
-inputText.placeholder = pluginData.currentText
+inputText.placeholder = pluginData.startText
 
 //Выбор шрифта
-const selectFont = createTag('selectStyle', 'select', settingsTag)
-pluginData.textFonts.map((value)=>{
-    const fontOption = createTag('', 'option', selectFont)
-    fontOption.innerText = value.split(`'`)[1]
+const selectFont = createTag(['selectBtnStyle', 'flexCenter'], 'div', settingsTag)
+pluginData.textFonts.map((value, index)=>{
+    const fontOption = createTag(['selectBtnStyleBtn', 'flexCenter'], 'btn', selectFont)
+    fontOption.innerText = index+1
     fontOption.value = value
-    fontOption.style.fontFamily = value
+    fontOption.style.fontFamily = pluginData.textFonts[5]
+    fontOption.style.fontWeight = 'bold'
+    fontOption.style.backgroundColor = 'darkblue'
+    fontOption.style.color = 'white'
 })
-selectFont.addEventListener('change', (e)=>{
+selectFont.addEventListener('click', (e)=>{
     const value = e.target.value
-    textImage.style.fontFamily = value
+    if(value){
+        textImage.style.fontFamily = value
+   }
+   
     
 })
 
 //Выбор размера
-const selectSize = createTag('selectStyle', 'select', settingsTag)
-pluginData.textSizes.map((value)=>{
-    const fontOption = createTag('', 'option', selectSize)
-    fontOption.innerText = value
-    fontOption.value = value
-    fontOption.style.fontSize = value
-})
-selectSize.addEventListener('change', (e)=>{
+const selectSizeDiv = createTag(['selectBtnStyle', 'flexCenter'], 'div', settingsTag)
+const selectSize = createTag('sliderCustom', 'input', selectSizeDiv)
+selectSize.type = 'range'
+selectSize.min = pluginData.textSizes.min
+selectSize.max = pluginData.textSizes.max
+selectSize.step = pluginData.textSizes.step
+selectSize.value = 40
+textImage.style.fontSize = 40+'px'
+selectSize.addEventListener('input', (e)=>{
     const value = e.target.value
-    textImage.style.fontSize = value
-    
+    textImage.style.fontSize = value+'px'
 })
 
 //Выбор цвета
-const selectColor = createTag(['selectColorStyle', 'flexCenter'], 'div', settingsTag)
+const selectColorDiv = createTag(['selectBtnStyle', 'flexCenter'], 'div', settingsTag)
 pluginData.textColors.map((value)=>{
-    const btn = createTag('selectColorStyleBtn', 'button', selectColor)
+const btn = createTag('selectBtnStyleBtn', 'button', selectColorDiv)
     btn.value = value
     btn.style.backgroundColor = value
     btn.addEventListener('click', (e)=>{
@@ -116,9 +124,9 @@ pluginData.textColors.map((value)=>{
 })
 
 //Выбор изображения
-const selectImg = createTag(['selectColorStyle', 'flexCenter'], 'div', settingsTag)
+const selectImg = createTag(['selectBtnStyle', 'flexCenter'], 'div', settingsTag)
 pluginData.images.map((value)=>{ 
-    const preview = createTag('selectColorStyleBtn', 'img', selectImg)
+    const preview = createTag('selectBtnStyleBtn', 'img', selectImg)
     preview.value = value
     preview.src = value
 
@@ -132,10 +140,7 @@ pluginData.images.map((value)=>{
 inputText.addEventListener('input', (e)=>{
     let value = e.target.value
     
-    if(value.trim()==''){
-        textImage.innerText = pluginData.startText
-    }
-    else textImage.innerText =value
+    textImage.innerText =value
 })
 
 
