@@ -18,9 +18,17 @@
 .flexCol{
   flex-direction: column;
 }
+.flexRow{
+  flex-direction: row;
+}
+.flexInline{
+  display: inline-flex;
+  gap: 5px;
+}
 .flexLeft{
   align-items: flex-start;
 }
+
 .imgTag{
     width: 500px;
     height: 500px;
@@ -28,7 +36,10 @@
     transition: all 0.25s;
     padding: 20px;
 }
-
+.rotate{
+  transform-origin: 0 0;
+  transform: rotate(90deg);
+}
 .settingsTag{
     max-width: 500px;
     max-height: 500px;
@@ -45,7 +56,7 @@
 
 .imgText{
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50% );
     text-align: center;
@@ -54,6 +65,8 @@
     font-family: 'Bad Script', cursive;
     user-select: none;
     line-height: 100%;
+    max-width: 495px;
+    max-height: 495px;
 }
 
 .img{
@@ -140,6 +153,17 @@
     box-shadow: 0px 0px  4px black inset, 4px 4px  6px black inset;
 }
 
+.selectBtnStyleBtn svg{
+  user-select: none;
+  pointer-events: none;
+}
+.svgIconInside svg{
+  width: 24px;
+  height: 24px;
+}
+.m-2{
+  margin: 2px;
+}
 
 @media screen and (max-width: 600px) {
     .imgTag, .settingsTag{
@@ -246,3 +270,10 @@ input[type=range].sliderCustom {
     }
   }
   
+  .verticalText{
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-combine-upright: digits 4;
+    word-wrap: normal;
+    white-space: pre-wrap;
+  }
