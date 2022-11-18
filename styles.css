@@ -67,6 +67,11 @@
     line-height: 100%;
     max-width: 495px;
     max-height: 495px;
+    padding: 10px;
+    
+}
+.imgText p{
+  margin: 0;
 }
 
 .img{

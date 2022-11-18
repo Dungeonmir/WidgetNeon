@@ -12,29 +12,29 @@ pluginBase.classList.add('flexCenter')
 pluginBase.classList.add('pluginBase')
 
 //Данные виджета
-const pluginData={
+const pluginData = {
     images: [
-        'https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png', 
+        'https://i.ibb.co/hsVtNr7/solid-color.png',
+        'https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png',
         'https://i.ibb.co/f1Ys3rN/00103-623051736-wall-backgroun-1.png',
-        'https://i.ibb.co/svSwVjN/00102-623051735-wall-backgroun-1.png', 
+        'https://i.ibb.co/svSwVjN/00102-623051735-wall-backgroun-1.png',
         'https://i.ibb.co/W3W4hD2/00108-3283353711-centered-wall-1.png',
-        'https://i.ibb.co/f8Z709r/00133-2472695541-photo-of-an.png',
         'https://i.ibb.co/XxVP7BL/00134-2506587442-photo-of-an.png',
         'https://i.ibb.co/VtHD1vx/00143-1998025693-photo-of-an.png',
         'https://i.ibb.co/Qd5HJvw/00137-548817707-photo-of-an-e.png',
         'https://i.ibb.co/hmGkdbv/00136-548817709-photo-of-an-e.png',
-        
+
     ],
     textColors: [
-        'rgba(234,236,230,255)', 
+        'rgba(234,236,230,255)',
         'rgba(253,212,131,255)',
-        'rgba(255,159,28,255)', 
-        'rgba(253,51,53,255)', 
-        'rgba(248,5,46,255)', 
-        'rgba(248,1,186,255)', 
-        'rgba(6,205,248,255)', 
-        'rgba(4,1,255,255)', 
-        'rgba(3,231,71,255)', 
+        'rgba(255,159,28,255)',
+        'rgba(253,51,53,255)',
+        'rgba(248,5,46,255)',
+        'rgba(248,1,186,255)',
+        'rgba(6,205,248,255)',
+        'rgba(4,1,255,255)',
+        'rgba(3,231,71,255)',
     ],
     textFonts: [
         `'Bad Script', cursive`,
@@ -47,27 +47,27 @@ const pluginData={
         `'Ruslan Display', cursive`,
         `'Seymour One', sans-serif`,
     ],
-    textSizes:{
+    textSizes: {
         min: 12,
         max: 80,
         step: 1,
     },
-    paragraphSettings:{
+    paragraphSettings: {
         lineHeight: {
             icon: `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><path class="cls-1" d="M6,10V5M6,5,4,7M6,5,8,7M6,14v5m0,0,2-2M6,19,4,17M12,7h8m0,5H12m0,5h8" transform="translate(-3 -4)"/></svg>`,
-            min: 70,
+            min: 100,
             max: 170,
             step: 5
         },
-        lineSymbolSpacing:{
-            icon:  `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17.53"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><path class="cls-1" d="M10,17.76H5m0,0,2,2m-2-2,2-2m7,2h5m0,0-2-2m2,2-2,2M6,4.24H18m0,3.6H6m0,3.6H18" transform="translate(-4 -3.24)"/></svg>`,
+        lineSymbolSpacing: {
+            icon: `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17.53"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><path class="cls-1" d="M10,17.76H5m0,0,2,2m-2-2,2-2m7,2h5m0,0-2-2m2,2-2,2M6,4.24H18m0,3.6H6m0,3.6H18" transform="translate(-4 -3.24)"/></svg>`,
             min: -2,
             max: 120,
             step: 0.5
         },
         textAlign: [
-           {
-            icon:`<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            {
+                icon: `<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>text-align-left</title>
                 <desc>Created with sketchtool.</desc>
                 <g id="text-edit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -76,18 +76,18 @@ const pluginData={
                     </g>
                 </g>
                 </svg>`,
-            cssStyle: 'start'
-           },
-           {
-            icon:`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                cssStyle: 'start'
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                 <g id="surface1">
                 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 3 6.375 C 3 5.960938 3.335938 5.625 3.75 5.625 L 20.25 5.625 C 20.664062 5.625 21 5.960938 21 6.375 C 21 6.789062 20.664062 7.125 20.25 7.125 L 3.75 7.125 C 3.335938 7.125 3 6.789062 3 6.375 Z M 6 9.375 C 5.585938 9.375 5.25 9.710938 5.25 10.125 C 5.25 10.539062 5.585938 10.875 6 10.875 L 18 10.875 C 18.414062 10.875 18.75 10.539062 18.75 10.125 C 18.75 9.710938 18.414062 9.375 18 9.375 Z M 20.25 13.125 L 3.75 13.125 C 3.335938 13.125 3 13.460938 3 13.875 C 3 14.289062 3.335938 14.625 3.75 14.625 L 20.25 14.625 C 20.664062 14.625 21 14.289062 21 13.875 C 21 13.460938 20.664062 13.125 20.25 13.125 Z M 18 16.875 L 6 16.875 C 5.585938 16.875 5.25 17.210938 5.25 17.625 C 5.25 18.039062 5.585938 18.375 6 18.375 L 18 18.375 C 18.414062 18.375 18.75 18.039062 18.75 17.625 C 18.75 17.210938 18.414062 16.875 18 16.875 Z M 18 16.875 "/>
                 </g>
                 </svg>`,
-            cssStyle: 'center'
-           },
-           {
-            icon:`<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                cssStyle: 'center'
+            },
+            {
+                icon: `<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     
                 <title>text-align-right</title>
                 <desc>Created with sketchtool.</desc>
@@ -97,23 +97,23 @@ const pluginData={
                     </g>
                 </g>
                 </svg>`,
-            cssStyle: 'end'
-           },
-           {
-            icon:`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                cssStyle: 'end'
+            },
+            {
+                icon: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                 <g id="surface1">
                 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 3 6.375 C 3 5.960938 3.335938 5.625 3.75 5.625 L 20.25 5.625 C 20.664062 5.625 21 5.960938 21 6.375 C 21 6.789062 20.664062 7.125 20.25 7.125 L 3.75 7.125 C 3.335938 7.125 3 6.789062 3 6.375 Z M 20.25 9.375 L 3.75 9.375 C 3.335938 9.375 3 9.710938 3 10.125 C 3 10.539062 3.335938 10.875 3.75 10.875 L 20.25 10.875 C 20.664062 10.875 21 10.539062 21 10.125 C 21 9.710938 20.664062 9.375 20.25 9.375 Z M 20.25 13.125 L 3.75 13.125 C 3.335938 13.125 3 13.460938 3 13.875 C 3 14.289062 3.335938 14.625 3.75 14.625 L 20.25 14.625 C 20.664062 14.625 21 14.289062 21 13.875 C 21 13.460938 20.664062 13.125 20.25 13.125 Z M 20.25 16.875 L 3.75 16.875 C 3.335938 16.875 3 17.210938 3 17.625 C 3 18.039062 3.335938 18.375 3.75 18.375 L 20.25 18.375 C 20.664062 18.375 21 18.039062 21 17.625 C 21 17.210938 20.664062 16.875 20.25 16.875 Z M 20.25 16.875 "/>
                 </g>
                 </svg>
                 `,
-            cssStyle: 'justify'
-           },
-           
+                cssStyle: 'justify'
+            },
+
         ],
         textDirection:
             [
                 {
-                icon:`<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    icon: `<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>ic_fluent_text_direction_horizontal_ltr_24_regular</title>
                 <desc>Created with Sketch.</desc>
                 <g id="🔍-System-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -123,10 +123,10 @@ const pluginData={
                 </g>
                 </svg>
                 `,
-                horizontal: true,
+                    horizontal: true,
                 },
                 {
-                icon:`<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    icon: `<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>ic_fluent_text_direction_vertical_24_regular</title>
                         <desc>Created with Sketch.</desc>
                         <g id="🔍-System-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -135,14 +135,14 @@ const pluginData={
                             </g>
                         </g>
                         </svg>`,
-                horizontal: false
+                    horizontal: false
                 }
-        ]
-        
+            ]
+
     },
     startText: "Ваш текст",
-    currentData:{
-        image:'https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png',
+    currentData: {
+        image: 'https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png',
         textColor: 'rgba(234,236,230,255)',
         textFont: `'Bad Script', cursive`,
         textSize: 40,
@@ -150,11 +150,11 @@ const pluginData={
 }
 
 //Создание и вставка html-тега
-function createTag(tagName,tagType="div", parentTag){
+function createTag(tagName, tagType = "div", parentTag) {
     const tag = document.createElement(tagType)
-    if(tagName!=""){
-        if(Array.isArray(tagName)){
-            tagName.map((tagName)=>{
+    if (tagName != "") {
+        if (Array.isArray(tagName)) {
+            tagName.map((tagName) => {
                 tag.classList.add(tagName)
             })
         }
@@ -165,7 +165,7 @@ function createTag(tagName,tagType="div", parentTag){
 }
 
 // Создание блока с описанием
-function createSettingsBlock( description){
+function createSettingsBlock(description) {
     const tab = createTag(['selectBtnStyle', 'flexAround', 'flexCol'], 'div', settingsTag)
     const desc = createTag('descriptionTag', 'p', tab)
     desc.innerText = description
@@ -179,45 +179,48 @@ const imgTextDiv = createTag(['imgText'], 'div', imageTag)
 const imgText = createTag('', 'p', imgTextDiv)
 imgText.innerText = pluginData.startText
 imgText.style.color = pluginData.textColors[0]
-imgText.style.textShadow = 
-`
+imgText.style.textShadow =
+    `
 0px 0px 4px ${pluginData.textColors[0]},
 0px 0px 20px ${pluginData.textColors[0]},
 0px 0px 40px ${pluginData.textColors[0]}
 `
-imgg.src = pluginData.images[1]
+imgg.src = pluginData.images[0]
 
 //Создание блоков для настроек
-const settingsTag = createTag(['settingsTag','flexCenter'], 'div', pluginBase)
+const settingsTag = createTag(['settingsTag', 'flexCenter'], 'div', pluginBase)
 
 //Ввод текста
 const inputTextDiv = createSettingsBlock('Текст')
 const inputText = createTag('inputStyle', 'input', inputTextDiv)
-inputText.type='text'
+inputText.type = 'text'
 inputText.placeholder = 'Введите ваш текст'
 
 //Обновление введенного текста
-inputText.addEventListener('input', (e)=>{
+inputText.addEventListener('input', (e) => {
     let value = e.target.value
-    
-    imgText.innerText =value
+
+    imgText.innerText = value
+
+    updateTextSupportDimensions()
 })
 
 //Выбор шрифта
 const selectFontDiv = createSettingsBlock('Шрифт')
-const selectFont = createTag([ 'flexAround'], 'div', selectFontDiv)
-pluginData.textFonts.map((value, index)=>{
+const selectFont = createTag(['flexAround'], 'div', selectFontDiv)
+pluginData.textFonts.map((value, index) => {
     const fontOption = createTag(['selectBtnStyleBtn', 'flexCenter', 'darkBtn'], 'btn', selectFont)
-    fontOption.innerText = index+1
+    fontOption.innerText = index + 1
     fontOption.value = value
 })
-selectFont.addEventListener('click', (e)=>{
+selectFont.addEventListener('click', (e) => {
     const value = e.target.value
-    if(value){
+    if (value) {
         imgText.style.fontFamily = value
-   }
-   
-    
+    }
+    updateTextSupportDimensions()
+
+
 })
 
 //Выбор размера
@@ -228,88 +231,129 @@ selectSize.min = pluginData.textSizes.min
 selectSize.max = pluginData.textSizes.max
 selectSize.step = pluginData.textSizes.step
 selectSize.value = 40
-imgText.style.fontSize = 40+'px'
-selectSize.addEventListener('input', (e)=>{
+imgText.style.fontSize = 40 + 'px'
+selectSize.addEventListener('input', (e) => {
     const value = e.target.value
-    imgText.style.fontSize = value+'px'
+    imgText.style.fontSize = value + 'px'
+    updateTextSupportDimensions()
 })
 
 //Выбор цвета
 const selectColorDiv = createSettingsBlock('Цвет')
 const selectColor = createTag(['flexAround'], 'div', selectColorDiv)
-pluginData.textColors.map((value)=>{
-const btn = createTag('selectBtnStyleBtn', 'button', selectColor)
+pluginData.textColors.map((value) => {
+    const btn = createTag('selectBtnStyleBtn', 'button', selectColor)
     btn.value = value
     btn.style.backgroundColor = value
-    btn.addEventListener('click', (e)=>{
+    btn.addEventListener('click', (e) => {
+
+        updateTextSupportDimensions()
+
         const value = e.target.value
-        imgText.style.color =value
-        let rgb = value.replace(/[^\d,]/g, '').split(',').map((int)=>{
+        imgText.style.color = value
+        let rgb = value.replace(/[^\d,]/g, '').split(',').map((int) => {
             return parseInt(int);
         })
-        function ligther(n, i){
+        function ligther(n, i) {
             let color = rgb[n]
-            if(color-(10*i)<=255-10*i){
-                    return color+(10*i)
+            if (color - (10 * i) <= 255 - 10 * i) {
+                return color + (10 * i)
             }
             else return color
-           
+
         }
         imgText.style.textShadow = (`
-        0px 0px 4px rgba(${ligther(0, 1)}, ${ligther(1, 1)}, ${ligther(2, 1)},0.7), 
-        0px 0px 20px rgba(${ligther(0, 2)}, ${ligther(1, 2)}, ${ligther(2, 2)},0.7),
-        0px 0px 40px rgba(${ligther(0, 3)}, ${ligther(1, 3)}, ${ligther(2, 3)},0.7)
+        0px 0px 4px rgba(${ligther(0, 1)}, ${ligther(1, 1)}, ${ligther(2, 1)},0.8), 
+        0px 0px 20px rgba(${ligther(0, 2)}, ${ligther(1, 2)}, ${ligther(2, 2)},0.8),
+        0px 0px 40px rgba(${ligther(0, 3)}, ${ligther(1, 3)}, ${ligther(2, 3)},0.8)
         `).toString()
-        
+
     })
 })
 
 //Выбор изображения
 const selectImgDiv = createSettingsBlock('Фон')
 const selectImg = createTag(['flexAround'], 'div', selectImgDiv)
-pluginData.images.map((value)=>{ 
+pluginData.images.map((value) => {
     const preview = createTag('selectBtnStyleBtn', 'img', selectImg)
     preview.value = value
     preview.src = value
 
-    preview.addEventListener('click', ((e)=>{
+    preview.addEventListener('click', ((e) => {
         imgg.src = e.target.value
+
+        updateTextSupportDimensions()
     }))
 })
 
+// Подложка
+const textSupportDiv = createSettingsBlock('Подложка')
+const textSupportDivFlex = createTag('flexInline', 'div', textSupportDiv)
+const textSupportCheckbox = createTag('', 'input', textSupportDivFlex)
+const textSupportDimensions = createTag('', 'p', textSupportDivFlex)
+textSupportCheckbox.type = 'checkbox'
+let checkboxIsOff = false
+
+updateTextSupportDimensions()
+
+textSupportCheckbox.addEventListener('input', (e) => {
+    if (checkboxIsOff === true) {
+        checkboxIsOff = false
+        imgTextDiv.style.backgroundColor = 'transparent'
+        imgTextDiv.style.border = 'none'
+    }
+    else {
+        checkboxIsOff = true
+        imgTextDiv.style.backgroundColor = 'black'
+        imgTextDiv.style.border = '1px solid yellow'
+    }
+})
+
+//Обновление размера подложки
+function updateTextSupportDimensions() {
+    const realityUmnojator = 2
+    const h = imgTextDiv.offsetHeight * realityUmnojator
+    const w = imgTextDiv.offsetWidth * realityUmnojator
+    textSupportDimensions.innerText = `Высота x Ширина = ${h}мм x ${w}мм`
+
+}
 
 // Настройки абзаца
 const selectParaSettingsDiv = createSettingsBlock('Абзац')
-const selectParaSettings = createTag(['flexAround'], 'div',selectParaSettingsDiv)
+const selectParaSettings = createTag(['flexAround'], 'div', selectParaSettingsDiv)
 selectParaSettingsDiv.style.gap = '5px'
 selectParaSettings.style.gap = '5px'
 
 //Высота линии
 const rangeLineHeightDiv = createTag(['flexInline', 'svgIconInside'], 'div', selectParaSettings)
-const rangeLineHeightSvgDiv = createTag(['m-2', 'flexCenter'], 'div', rangeLineHeightDiv) 
+const rangeLineHeightSvgDiv = createTag(['m-2', 'flexCenter'], 'div', rangeLineHeightDiv)
 rangeLineHeightSvgDiv.innerHTML = pluginData.paragraphSettings.lineHeight.icon
 const rangeLineHeight = createTag('sliderCustom', 'input', rangeLineHeightDiv)
 rangeLineHeight.type = 'range'
+imgText.style.lineHeight = '110%'
 rangeLineHeight.min = pluginData.paragraphSettings.lineHeight.min
 rangeLineHeight.max = pluginData.paragraphSettings.lineHeight.max
 rangeLineHeight.step = pluginData.paragraphSettings.lineHeight.step
-rangeLineHeight.addEventListener('input', (e)=>{
+rangeLineHeight.addEventListener('input', (e) => {
     const value = e.target.value
-    imgText.style.lineHeight = value+'%'
+    imgText.style.lineHeight = value + '%'
+
+    updateTextSupportDimensions()
 })
 
 //Расстояние между символами
 const rangeSymbolWidthDiv = createTag(['flexInline', 'svgIconInside'], 'div', selectParaSettings)
-const rangeSymbolWidthSvgDiv = createTag(['m-2', 'flexCenter'], 'div', rangeSymbolWidthDiv) 
+const rangeSymbolWidthSvgDiv = createTag(['m-2', 'flexCenter'], 'div', rangeSymbolWidthDiv)
 rangeSymbolWidthSvgDiv.innerHTML = pluginData.paragraphSettings.lineSymbolSpacing.icon
 const rangeSybmbolWidth = createTag('sliderCustom', 'input', rangeSymbolWidthDiv)
 rangeSybmbolWidth.type = 'range'
 rangeSybmbolWidth.min = pluginData.paragraphSettings.lineSymbolSpacing.min
 rangeSybmbolWidth.max = pluginData.paragraphSettings.lineSymbolSpacing.max
 rangeSybmbolWidth.step = pluginData.paragraphSettings.lineSymbolSpacing.step
-rangeSybmbolWidth.addEventListener('input', (e)=>{
+rangeSybmbolWidth.addEventListener('input', (e) => {
     const value = e.target.value
-    imgText.style.letterSpacing = value+'px'
+    imgText.style.letterSpacing = value + 'px'
+    updateTextSupportDimensions()
 })
 
 
@@ -317,32 +361,34 @@ const textSettiingsBtns = createTag('flexAround', 'div', selectParaSettings)
 textSettiingsBtns.style.width = '100%'
 //Выравнивание текста
 const textAlignDiv = createTag(['flexInline'], 'div', textSettiingsBtns)
-pluginData.paragraphSettings.textAlign.map((data)=>{
+pluginData.paragraphSettings.textAlign.map((data) => {
     const btn = createTag(['selectBtnStyleBtn', 'flexCenter'], 'div', textAlignDiv)
     btn.innerHTML = data.icon
     btn.value = data.cssStyle
 
-    btn.addEventListener('click', (e)=>{
+    btn.addEventListener('click', (e) => {
         let value = e.target.value
         imgText.style.textAlign = value
+
+        updateTextSupportDimensions()
     })
 })
 
 // Вертикальный текст
 const textDirectionDiv = createTag(['flexInline'], 'div', textSettiingsBtns)
-pluginData.paragraphSettings.textDirection.map((data)=>{
+pluginData.paragraphSettings.textDirection.map((data) => {
     const btn = createTag(['selectBtnStyleBtn', 'flexCenter'], 'div', textDirectionDiv)
     btn.innerHTML = data.icon
     btn.value = data.horizontal
-    btn.addEventListener('click', (e)=>{
+    btn.addEventListener('click', (e) => {
         let value = e.target.value
-        if(value===false){
+        if (value === false) {
             imgText.classList.add('verticalText')
         }
-        else{
+        else {
             imgText.classList.remove('verticalText')
         }
-        
+        updateTextSupportDimensions()
     })
 })
 
