@@ -136,12 +136,23 @@ const pluginData = {
       },
     ],
   },
+  textDimensions:{
+    w:{
+      max: 1000,
+      min: 10,
+    },
+    h: {
+      max: 1000,
+      min: 10
+    }
+  },
   startText: "Ваш текст",
   currentData: {
     image: "https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png",
     textColor: "rgba(234,236,230,255)",
     textFont: `'Bad Script', cursive`,
     textSize: 40,
+    textSupport:[120,50]
   },
 };
 
@@ -174,7 +185,7 @@ function createSettingsBlock(description) {
 //Создание блоков для изображения
 const imageTag = createTag(["imgTag", "flexCenter"], "div", pluginBase);
 const imgg = createTag("img", "img", imageTag);
-const imgTextDiv = createTag(["imgText"], "div", imageTag);
+const imgTextDiv = createTag(["imgText", "flexCenter"], "div", imageTag);
 const imgText = createTag("", "p", imgTextDiv);
 imgText.innerText = pluginData.startText;
 imgText.style.color = pluginData.textColors[0];
@@ -298,9 +309,29 @@ pluginData.images.map((value) => {
 const textSupportDiv = createSettingsBlock("Подложка");
 const textSupportDivFlex = createTag("flexInline", "div", textSupportDiv);
 const textSupportCheckbox = createTag("", "input", textSupportDivFlex);
-const textSupportDimensions = createTag("", "p", textSupportDivFlex);
+const textSupportDimensions = createTag("flexCenter", "div", textSupportDivFlex);
+const dimensionW = createTag('', 'input', textSupportDimensions)
+const dimensionTextBetween = createTag('', 'div', textSupportDimensions)
+dimensionTextBetween.innerText = ' x ' 
+dimensionTextBetween.style.margin = '0px 10px'
+const dimensionH = createTag('', 'input', textSupportDimensions)
+
+
+dimensionW.addEventListener('input', ((e)=>{
+  const value = e.target.value
+  imgTextDiv.style.width = Number(value)/2 +'px'
+}))
+dimensionH.addEventListener('input', ((e)=>{
+  const value = e.target.value
+    imgTextDiv.style.height = Number(value)/2 + 'px'
+}))
+
+dimensionW.type = 'number'
+dimensionH.type = 'number'
+
 textSupportCheckbox.type = "checkbox";
 let checkboxIsOff = false;
+textSupportDimensions.style.visibility = 'hidden'
 
 updateTextSupportDimensions();
 
@@ -309,19 +340,24 @@ textSupportCheckbox.addEventListener("input", (e) => {
     checkboxIsOff = false;
     imgTextDiv.style.backgroundColor = "transparent";
     imgTextDiv.style.border = "none";
+    textSupportDimensions.style.visibility = 'hidden'
   } else {
     checkboxIsOff = true;
     imgTextDiv.style.border = "1px solid yellow";
-    imgTextDiv.style.borderRadius = '2px'
+    imgTextDiv.style.borderRadius = '4px'
+    textSupportDimensions.style.visibility = 'visible'
+    dimensionH.value = imgTextDiv.offsetHeight * 2
+    dimensionW.value = imgTextDiv.offsetWidth * 2
   }
 });
 
 //Обновление размера подложки
 function updateTextSupportDimensions() {
   const realityUmnojator = 2;
-  const h = imgTextDiv.offsetHeight * realityUmnojator;
-  const w = imgTextDiv.offsetWidth * realityUmnojator;
-  textSupportDimensions.innerText = `Высота x Ширина = ${h}мм x ${w}мм`;
+  const w = Number(imgTextDiv.style.width.replace('px', '')) * realityUmnojator;
+  const h = Number(imgTextDiv.style.height.replace('px', '')) * realityUmnojator;
+  dimensionW.value = w
+  dimensionH.value = h
 }
 
 // Настройки абзаца
