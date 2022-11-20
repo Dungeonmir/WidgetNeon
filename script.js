@@ -281,7 +281,7 @@ const textSupportDimensions = createTag(
 );
 const dimensionText = createTag("", "div", textSupportDimensions);
 dimensionText.style.visibility = "hidden";
-
+dimensionText.style.color = "darkblue";
 const dimensionBtnPryam = createTag(
   ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
   "button",
