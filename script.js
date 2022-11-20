@@ -272,7 +272,7 @@ pluginData.textColors.map((value) => {
 
 // Подложка
 const textSupportDiv = createSettingsBlock("Подложка");
-const textSupportDivFlex = createTag("flexInline", "div", textSupportDiv);
+const textSupportDivFlex = createTag("flexCenter", "div", textSupportDiv);
 const textSupportCheckbox = createTag("", "input", textSupportDivFlex);
 const textSupportDimensions = createTag(
   "flexCenter",
