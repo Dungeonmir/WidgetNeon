@@ -279,7 +279,7 @@ const textSupportDimensions = createTag(
   "div",
   textSupportDivFlex
 );
-const dimensionText = createTag("", "div", textSupportDimensions);
+const dimensionText = createTag("", "div", textSupportDivFlex);
 dimensionText.style.visibility = "hidden";
 dimensionText.style.color = "darkblue";
 const dimensionBtnPryam = createTag(
