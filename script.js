@@ -13,17 +13,7 @@ pluginBase.classList.add("pluginBase");
 
 //Данные виджета
 const pluginData = {
-  images: [
-    "https://i.ibb.co/hsVtNr7/solid-color.png",
-    "https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png",
-    "https://i.ibb.co/f1Ys3rN/00103-623051736-wall-backgroun-1.png",
-    "https://i.ibb.co/svSwVjN/00102-623051735-wall-backgroun-1.png",
-    "https://i.ibb.co/W3W4hD2/00108-3283353711-centered-wall-1.png",
-    "https://i.ibb.co/XxVP7BL/00134-2506587442-photo-of-an.png",
-    "https://i.ibb.co/VtHD1vx/00143-1998025693-photo-of-an.png",
-    "https://i.ibb.co/Qd5HJvw/00137-548817707-photo-of-an-e.png",
-    "https://i.ibb.co/hmGkdbv/00136-548817709-photo-of-an-e.png",
-  ],
+  images: [""],
   textColors: [
     "rgba(234,236,230,255)",
     "rgba(253,212,131,255)",
@@ -138,7 +128,7 @@ const pluginData = {
   },
   startText: "Ваш текст",
   currentData: {
-    image: "https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png",
+    image: "https://i.ibb.co/hsVtNr7/solid-color.png",
     textColor: "rgba(234,236,230,255)",
     textFont: `'Bad Script', cursive`,
     textSize: 40,
@@ -184,7 +174,7 @@ imgText.style.textShadow = `
 0px 0px 20px ${pluginData.textColors[0]},
 0px 0px 40px ${pluginData.textColors[0]}
 `;
-imgg.src = pluginData.images[0];
+imgg.src = pluginData.currentData.image;
 
 //Создание блоков для настроек
 const settingsTag = createTag(["settingsTag", "flexCenter"], "div", pluginBase);
@@ -280,21 +270,6 @@ pluginData.textColors.map((value) => {
   });
 });
 
-//Выбор изображения
-const selectImgDiv = createSettingsBlock("Фон");
-const selectImg = createTag(["flexAround"], "div", selectImgDiv);
-pluginData.images.map((value) => {
-  const preview = createTag("selectBtnStyleBtn", "img", selectImg);
-  preview.value = value;
-  preview.src = value;
-
-  preview.addEventListener("click", (e) => {
-    imgg.src = e.target.value;
-
-    updateTextSupportDimensions();
-  });
-});
-
 // Подложка
 const textSupportDiv = createSettingsBlock("Подложка");
 const textSupportDivFlex = createTag("flexInline", "div", textSupportDiv);
@@ -306,22 +281,24 @@ const textSupportDimensions = createTag(
 );
 const dimensionText = createTag("", "div", textSupportDimensions);
 dimensionText.style.visibility = "hidden";
+
+const dimensionBtnPryam = createTag(
+  ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
+  "button",
+  textSupportDimensions
+);
 const dimensionBtnPerim = createTag(
   ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
   "button",
   textSupportDimensions
 );
-const dimensionBtnChar = createTag(
-  ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
-  "button",
-  textSupportDimensions
-);
-dimensionBtnChar.innerText = "Контурная";
-dimensionBtnPerim.innerText = "Прямоугольная";
+
+dimensionBtnPerim.innerText = "Контурная";
+dimensionBtnPryam.innerText = "Прямоугольная";
 
 let supportTextType = "";
 
-dimensionBtnChar.addEventListener("click", () => {
+dimensionBtnPryam.addEventListener("click", () => {
   supportTextType = "По контуру";
   updateTextSupportDimensions();
   imgTextDiv.classList.add("dimensionsBorder");
@@ -348,6 +325,8 @@ textSupportCheckbox.addEventListener("input", (e) => {
     checkboxIsOff = false;
     dimensionText.style.visibility = "hidden";
     textSupportDimensions.style.visibility = "hidden";
+    imgTextDiv.classList.remove("dimensionsBorder");
+    imgText.classList.remove("dimensionsBorder");
   } else {
     checkboxIsOff = true;
 
