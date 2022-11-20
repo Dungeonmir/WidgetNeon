@@ -136,23 +136,13 @@ const pluginData = {
       },
     ],
   },
-  textDimensions:{
-    w:{
-      max: 1000,
-      min: 10,
-    },
-    h: {
-      max: 1000,
-      min: 10
-    }
-  },
   startText: "Ваш текст",
   currentData: {
     image: "https://i.ibb.co/bXFBCKD/00100-670826520-wall-backgroun-1.png",
     textColor: "rgba(234,236,230,255)",
     textFont: `'Bad Script', cursive`,
     textSize: 40,
-    textSupport:[120,50]
+    textSupport: [120, 50],
   },
 };
 
@@ -309,55 +299,77 @@ pluginData.images.map((value) => {
 const textSupportDiv = createSettingsBlock("Подложка");
 const textSupportDivFlex = createTag("flexInline", "div", textSupportDiv);
 const textSupportCheckbox = createTag("", "input", textSupportDivFlex);
-const textSupportDimensions = createTag("flexCenter", "div", textSupportDivFlex);
-const dimensionW = createTag('', 'input', textSupportDimensions)
-const dimensionTextBetween = createTag('', 'div', textSupportDimensions)
-dimensionTextBetween.innerText = ' x ' 
-dimensionTextBetween.style.margin = '0px 10px'
-const dimensionH = createTag('', 'input', textSupportDimensions)
+const textSupportDimensions = createTag(
+  "flexCenter",
+  "div",
+  textSupportDivFlex
+);
+const dimensionText = createTag("", "div", textSupportDimensions);
+dimensionText.style.visibility = "hidden";
+const dimensionBtnPerim = createTag(
+  ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
+  "button",
+  textSupportDimensions
+);
+const dimensionBtnChar = createTag(
+  ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
+  "button",
+  textSupportDimensions
+);
+dimensionBtnChar.innerText = "Контурная";
+dimensionBtnPerim.innerText = "Прямоугольная";
 
+let supportTextType = "";
 
-dimensionW.addEventListener('input', ((e)=>{
-  const value = e.target.value
-  imgTextDiv.style.width = Number(value)/2 +'px'
-}))
-dimensionH.addEventListener('input', ((e)=>{
-  const value = e.target.value
-    imgTextDiv.style.height = Number(value)/2 + 'px'
-}))
+dimensionBtnChar.addEventListener("click", () => {
+  supportTextType = "По контуру";
+  updateTextSupportDimensions();
+  imgTextDiv.classList.add("dimensionsBorder");
+  imgText.classList.remove("dimensionsBorder");
+  dimensionText.style.visibility = "visible";
+});
+dimensionBtnPerim.addEventListener("click", () => {
+  supportTextType = "Прямоугольник";
+  updateTextSupportDimensions();
+  imgText.classList.add("dimensionsBorder");
+  imgTextDiv.classList.remove("dimensionsBorder");
+  dimensionText.style.visibility = "visible";
+});
 
-dimensionW.type = 'number'
-dimensionH.type = 'number'
-
+dimensionText.style.margin = "0px 10px";
 textSupportCheckbox.type = "checkbox";
 let checkboxIsOff = false;
-textSupportDimensions.style.visibility = 'hidden'
+textSupportDimensions.style.visibility = "hidden";
 
 updateTextSupportDimensions();
 
 textSupportCheckbox.addEventListener("input", (e) => {
   if (checkboxIsOff === true) {
     checkboxIsOff = false;
-    imgTextDiv.style.backgroundColor = "transparent";
-    imgTextDiv.style.border = "none";
-    textSupportDimensions.style.visibility = 'hidden'
+    dimensionText.style.visibility = "hidden";
+    textSupportDimensions.style.visibility = "hidden";
   } else {
     checkboxIsOff = true;
-    imgTextDiv.style.border = "1px solid yellow";
-    imgTextDiv.style.borderRadius = '4px'
-    textSupportDimensions.style.visibility = 'visible'
-    dimensionH.value = imgTextDiv.offsetHeight * 2
-    dimensionW.value = imgTextDiv.offsetWidth * 2
+
+    imgTextDiv.style.borderRadius = "8px";
+    textSupportDimensions.style.visibility = "visible";
   }
 });
 
 //Обновление размера подложки
 function updateTextSupportDimensions() {
   const realityUmnojator = 2;
-  const w = Number(imgTextDiv.style.width.replace('px', '')) * realityUmnojator;
-  const h = Number(imgTextDiv.style.height.replace('px', '')) * realityUmnojator;
-  dimensionW.value = w
-  dimensionH.value = h
+  let w, h;
+  if (supportTextType == "По контуру") {
+    w = imgTextDiv.offsetWidth;
+    h = imgTextDiv.offsetHeight;
+  } else {
+    w = imgText.offsetWidth;
+    h = imgText.offsetHeight;
+  }
+  w *= realityUmnojator;
+  h *= realityUmnojator;
+  dimensionText.innerText = `${w}мм x ${h}мм`;
 }
 
 // Настройки абзаца
