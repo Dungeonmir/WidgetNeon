@@ -188,10 +188,16 @@ inputText.placeholder = "Введите ваш текст";
 //Обновление введенного текста
 inputText.addEventListener("input", (e) => {
   let value = e.target.value;
-
-  imgText.innerText = value;
+  imgText.innerHTML = value;
 
   updateTextSupportDimensions();
+});
+
+inputText.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    inputText.value = inputText.value + "<br/>";
+    imgText.value = inputText.value + "<br/>";
+  }
 });
 
 //Выбор шрифта

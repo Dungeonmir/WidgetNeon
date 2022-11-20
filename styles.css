@@ -80,6 +80,8 @@
   border-radius: 8px;
   margin: 15px 30px;
   padding: 4px;
+  max-width: 495px;
+  max-height: 495px;
 }
 
 .img {
