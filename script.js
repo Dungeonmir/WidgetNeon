@@ -163,7 +163,7 @@ function createSettingsBlock(description) {
 }
 
 //Создание блоков для изображения
-const imageTag = createTag(["imgTag", "flexCenter"], "div", pluginBase);
+const imageTag = createTag(["imgTag"], "div", pluginBase);
 const imgg = createTag("img", "img", imageTag);
 const imgTextDiv = createTag(["imgText", "flexCenter"], "div", imageTag);
 const imgText = createTag("", "p", imgTextDiv);
@@ -271,84 +271,34 @@ pluginData.textColors.map((value) => {
 });
 
 // Подложка
-const textSupportDiv = createSettingsBlock("Подложка");
-const textSupportDivFlex = createTag("flexCenter", "div", textSupportDiv);
-const textSupportCheckbox = createTag("", "input", textSupportDivFlex);
-const textSupportDimensions = createTag(
-  "flexCenter",
+imgTextDiv.classList.add("dimensionsBorder");
+const textSupportHeightBorder = createTag(
+  ["supportStyleHeightBorder", "border1px"],
   "div",
-  textSupportDivFlex
+  imgTextDiv
 );
-const dimensionText = createTag("", "div", textSupportDivFlex);
-dimensionText.style.visibility = "hidden";
-dimensionText.style.color = "darkblue";
-const dimensionBtnPryam = createTag(
-  ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
-  "button",
-  textSupportDimensions
+const textSupportWidthBorder = createTag(
+  ["supportStyleWidthBorder", "border1px"],
+  "div",
+  imgTextDiv
 );
-const dimensionBtnPerim = createTag(
-  ["darkBtn", "selectBtnStyleBtn", "autoDimensions"],
-  "button",
-  textSupportDimensions
-);
+const textSupportWidth = createTag("supportStyleHeight", "div", imgTextDiv);
+const textSupportHeight = createTag("supportStyleWidth", "div", imgTextDiv);
 
-dimensionBtnPerim.innerText = "Контурная";
-dimensionBtnPryam.innerText = "Прямоугольная";
-
-let supportTextType = "";
-
-dimensionBtnPryam.addEventListener("click", () => {
-  supportTextType = "По контуру";
+window.addEventListener("DOMContentLoaded", (event) => {
   updateTextSupportDimensions();
-  imgTextDiv.classList.add("dimensionsBorder");
-  imgText.classList.remove("dimensionsBorder");
-  dimensionText.style.visibility = "visible";
-});
-dimensionBtnPerim.addEventListener("click", () => {
-  supportTextType = "Прямоугольник";
-  updateTextSupportDimensions();
-  imgText.classList.add("dimensionsBorder");
-  imgTextDiv.classList.remove("dimensionsBorder");
-  dimensionText.style.visibility = "visible";
-});
-
-dimensionText.style.margin = "0px 10px";
-textSupportCheckbox.type = "checkbox";
-let checkboxIsOff = false;
-textSupportDimensions.style.visibility = "hidden";
-
-updateTextSupportDimensions();
-
-textSupportCheckbox.addEventListener("input", (e) => {
-  if (checkboxIsOff === true) {
-    checkboxIsOff = false;
-    dimensionText.style.visibility = "hidden";
-    textSupportDimensions.style.visibility = "hidden";
-    imgTextDiv.classList.remove("dimensionsBorder");
-    imgText.classList.remove("dimensionsBorder");
-  } else {
-    checkboxIsOff = true;
-
-    imgTextDiv.style.borderRadius = "8px";
-    textSupportDimensions.style.visibility = "visible";
-  }
 });
 
 //Обновление размера подложки
 function updateTextSupportDimensions() {
   const realityUmnojator = 2;
   let w, h;
-  if (supportTextType == "По контуру") {
-    w = imgTextDiv.offsetWidth;
-    h = imgTextDiv.offsetHeight;
-  } else {
-    w = imgText.offsetWidth;
-    h = imgText.offsetHeight;
-  }
+  w = imgTextDiv.offsetWidth;
+  h = imgTextDiv.offsetHeight;
   w *= realityUmnojator;
   h *= realityUmnojator;
-  dimensionText.innerText = `${w}мм x ${h}мм`;
+  textSupportWidth.innerText = w + "мм";
+  textSupportHeight.innerText = h + "мм";
 }
 
 // Настройки абзаца

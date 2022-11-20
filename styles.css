@@ -326,3 +326,55 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   width: auto;
   height: auto;
 }
+
+.supportStyleHeight{
+  font-size: small;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%,-100%);
+  background-color: #141615;
+  padding: 0 3px;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+}
+.supportStyleWidth{
+  font-size: small;
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  background-color: #141615;
+  padding: 3px 0;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+  transform: translate(-100%,-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  text-combine-upright: digits 4;
+  word-wrap: normal;
+  white-space: pre-wrap;
+  
+}
+.border1px{
+  border: solid 1px rgba(149, 229, 255, 0.418);
+}
+
+.supportStyleHeightBorder{
+  position: absolute;
+  top: 0%;
+  left: -25px;
+  transform: translate(-50%, 0);
+  width: 30px;
+  height: 100%;
+  border-right: none;
+}
+
+.supportStyleWidthBorder{
+  position: absolute;
+  top: -25px;
+  left: 0%;
+  transform: translate(0, -50%);
+  width: 100%;
+  height: 30px;
+  border-bottom: none;
+}
