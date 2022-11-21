@@ -41,6 +41,11 @@ const pluginData = {
     max: 80,
     step: 1,
   },
+  textScale: {
+    min: 1,
+    max: 6,
+    step: 0.5,
+  },
   paragraphSettings: {
     lineHeight: {
       icon: `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><path class="cls-1" d="M6,10V5M6,5,4,7M6,5,8,7M6,14v5m0,0,2-2M6,19,4,17M12,7h8m0,5H12m0,5h8" transform="translate(-3 -4)"/></svg>`,
@@ -133,6 +138,7 @@ const pluginData = {
     textFont: `'Bad Script', cursive`,
     textSize: 40,
     textSupport: [120, 50],
+    realityScale: 2,
   },
 };
 
@@ -224,7 +230,7 @@ selectFont.addEventListener("click", (e) => {
   updateTextSupportDimensions();
 });
 
-//Выбор размера
+//Выбор размера текста
 const selectSizeDiv = createSettingsBlock("Размер текста");
 const selectSize = createTag("sliderCustom", "input", selectSizeDiv);
 selectSize.type = "range";
@@ -236,6 +242,18 @@ imgText.style.fontSize = 40 + "px";
 selectSize.addEventListener("input", (e) => {
   const value = e.target.value;
   imgText.style.fontSize = value + "px";
+  updateTextSupportDimensions();
+});
+//Выбор масштаба
+const selectScaleDiv = createSettingsBlock("Масштаб");
+const selectScale = createTag("sliderCustom", "input", selectScaleDiv);
+selectScale.type = "range";
+selectScale.min = pluginData.textScale.min;
+selectScale.max = pluginData.textScale.max;
+selectScale.step = pluginData.textScale.step;
+selectScale.value = 2;
+selectScale.addEventListener("input", (e) => {
+  pluginData.currentData.realityScale = e.target.value;
   updateTextSupportDimensions();
 });
 
@@ -320,10 +338,11 @@ const focusInHandler = (e) => {
 };
 const focusOutHandler = (e) => {
   if (e.target.value !== "") {
+    const realityScale = pluginData.currentData.realityScale;
     if (e.target.classList.contains("supportStyleHeightInput")) {
-      imgTextDiv.style.width = e.target.value / 2 + "px";
+      imgTextDiv.style.width = e.target.value / realityScale + "px";
     } else {
-      imgTextDiv.style.height = e.target.value / 2 + "px";
+      imgTextDiv.style.height = e.target.value / realityScale + "px";
     }
     updateTextSupportDimensions();
   }
@@ -344,12 +363,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 //Обновление размера подложки
 function updateTextSupportDimensions() {
-  const realityUmnojator = 2;
+  const realityScale = pluginData.currentData.realityScale;
   let w, h;
   w = imgTextDiv.offsetWidth;
   h = imgTextDiv.offsetHeight;
-  w *= realityUmnojator;
-  h *= realityUmnojator;
+  w *= realityScale;
+  h *= realityScale;
   textSupportWidth.innerText = w + "мм";
   textSupportHeight.innerText = h + "мм";
 }
