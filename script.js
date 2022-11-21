@@ -176,6 +176,10 @@ imgText.style.textShadow = `
 `;
 imgg.src = pluginData.currentData.image;
 
+imgText.addEventListener("click", () => {
+  inputText.focus();
+});
+
 //Создание блоков для настроек
 const settingsTag = createTag(["settingsTag", "flexCenter"], "div", pluginBase);
 
@@ -290,7 +294,50 @@ const textSupportWidthBorder = createTag(
 );
 const textSupportWidth = createTag("supportStyleHeight", "div", imgTextDiv);
 const textSupportHeight = createTag("supportStyleWidth", "div", imgTextDiv);
+const textSupportWidthInput = createTag(
+  "supportStyleWidthInput",
+  "input",
+  imgTextDiv
+);
+textSupportWidthInput.type = "number";
 
+const textSupportHeightInput = createTag(
+  "supportStyleHeightInput",
+  "input",
+  imgTextDiv
+);
+
+const focusInHandler = (e) => {
+  if (e.target.classList.contains("supportStyleHeight")) {
+    textSupportHeightInput.style.visibility = "visible";
+    textSupportHeightInput.focus();
+    textSupportHeightInput.value = null;
+  } else {
+    textSupportWidthInput.style.visibility = "visible";
+    textSupportWidthInput.focus();
+    textSupportWidthInput.value = null;
+  }
+};
+const focusOutHandler = (e) => {
+  if (e.target.value !== "") {
+    if (e.target.classList.contains("supportStyleHeightInput")) {
+      imgTextDiv.style.width = e.target.value / 2 + "px";
+    } else {
+      imgTextDiv.style.height = e.target.value / 2 + "px";
+    }
+    updateTextSupportDimensions();
+  }
+
+  e.target.style.visibility = "hidden";
+};
+
+textSupportWidth.addEventListener("click", focusInHandler);
+textSupportWidthInput.addEventListener("focusout", focusOutHandler);
+textSupportHeight.addEventListener("click", focusInHandler);
+textSupportHeightInput.addEventListener("focusout", focusOutHandler);
+textSupportHeightInput.type = "number";
+
+//Действия после загрузки DOM дерева
 window.addEventListener("DOMContentLoaded", (event) => {
   updateTextSupportDimensions();
 });

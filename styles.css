@@ -82,6 +82,7 @@
   padding: 4px;
   max-width: 495px;
   max-height: 495px;
+  cursor: pointer;
 }
 
 .img {
@@ -339,6 +340,9 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   padding: 0 3px;
   text-shadow: none;
   font-family: 'Comfortaa', sans-serif;
+  max-width: 40px;
+  color: rgba(149, 229, 255, 0.418);
+  cursor: pointer;
 }
 .supportStyleWidth{
   font-size: small;
@@ -355,12 +359,48 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   text-combine-upright: digits 4;
   word-wrap: normal;
   white-space: pre-wrap;
+  max-width: 40px;
+  color: rgba(149, 229, 255, 0.418);
+  cursor: pointer;
   
 }
 .border1px{
   border: solid 1px rgba(149, 229, 255, 0.418);
 }
 
+.supportStyleHeightInput{
+  font-size: small;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%,-100%);
+  background-color: #141615;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+  max-width: 80px;
+  color: rgba(149, 229, 255, 0.418);
+  text-align: center;
+}
+
+.supportStyleWidthInput{
+  font-size: small;
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  background-color: #141615;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+  transform: translate(-50%,-50%) rotate(-90deg);
+  
+}
+.supportStyleHeightInput, .supportStyleWidthInput{
+  color: rgba(149, 229, 255, 0.418);
+  max-width: 80px;
+  text-align: center;
+  outline: rgba(149, 229, 255, 0.418);
+  border: none;
+  visibility: hidden;
+}
 .supportStyleHeightBorder{
   position: absolute;
   top: 0%;
