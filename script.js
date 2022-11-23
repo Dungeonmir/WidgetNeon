@@ -13,7 +13,6 @@ pluginBase.classList.add("pluginBase");
 
 //Данные виджета
 const pluginData = {
-  images: [""],
   textColors: [
     "rgba(234,236,230,255)",
     "rgba(253,212,131,255)",
@@ -131,9 +130,13 @@ const pluginData = {
       },
     ],
   },
+  saveButton: {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+		       <path d="M506.499,158.874L353.139,5.514c-6.226-6.227-13.039-5.487-18.226-5.487c-13.189,0-308.271,0-316.168,0    C8.4,0.027,0.014,8.414,0.014,18.758v474.511C0.014,503.613,8.4,512,18.744,512c4.503,0,464.273,0,474.511,0    c10.344,0,18.731-8.386,18.731-18.731v-321.15C511.986,167.151,510.012,162.386,506.499,158.874z M152.528,37.489h163.654v102.687    H152.528V37.489z M379.709,474.538H132.292v-73.985h247.416V474.538z M379.709,363.092h-0.001H132.292v-73.985h247.416V363.092z     M474.525,474.538h-57.356V270.376c0-10.344-8.386-18.731-18.731-18.731H113.562c-10.344,0-18.731,8.386-18.731,18.731v204.162    H37.475V37.489h77.591v121.417c0,10.344,8.386,18.731,18.731,18.731h201.115c10.344,0,18.731-8.386,18.731-18.731v-99.91    l120.882,120.882V474.538z" fill="#FFFFFF"/>
+           </svg>`,
+  },
   startText: "Ваш текст",
   currentData: {
-    image: "https://i.ibb.co/hsVtNr7/solid-color.png",
     textColor: "rgba(234,236,230,255)",
     textFont: `'Bad Script', cursive`,
     textSize: 40,
@@ -170,7 +173,7 @@ function createSettingsBlock(description) {
 
 //Создание блоков для изображения
 const imageTag = createTag(["imgTag"], "div", pluginBase);
-const imgg = createTag("img", "img", imageTag);
+const imgg = createTag("img", "div", imageTag);
 const imgTextDiv = createTag(["imgText", "flexCenter"], "div", imageTag);
 const imgText = createTag("", "p", imgTextDiv);
 imgText.innerText = pluginData.startText;
@@ -180,7 +183,6 @@ imgText.style.textShadow = `
 0px 0px 20px ${pluginData.textColors[0]},
 0px 0px 40px ${pluginData.textColors[0]}
 `;
-imgg.src = pluginData.currentData.image;
 
 imgText.addEventListener("click", () => {
   inputText.focus();
@@ -188,6 +190,37 @@ imgText.addEventListener("click", () => {
 
 //Создание блоков для настроек
 const settingsTag = createTag(["settingsTag", "flexCenter"], "div", pluginBase);
+
+// Создание кнопки сохранения скриншота текста
+const imageSaveBtn = createTag(["saveBtn"], "button", imageTag);
+//const canvasSave = createTag("", "canvas", pluginBase);
+//canvasSave.width = 500;
+//canvasSave.height = 500;
+imageSaveBtn.innerHTML = pluginData.saveButton.icon;
+
+imageSaveBtn.addEventListener("click", (e) => {
+  imageSaveBtn.style.visibility = "hidden";
+  imageTag.focus();
+  /*const context = canvasSave.getContext("2d");
+
+  context.setTransform(1, 0, 0, 1, 0, 0);
+  context.clearRect(0, 0, canvasSave.width, canvasSave.height);*/
+
+  html2canvas(imageTag, {
+    //canvas: canvasSave,
+    scale: 1,
+    width: 500,
+    height: 500,
+    backgroundColor: "#141615",
+  }).then(function (canvas) {
+    var link = document.createElement("a");
+    link.download = "filename.png";
+    link.href = canvas.toDataURL("image/jpeg");
+    link.click();
+  });
+
+  imageSaveBtn.style.visibility = "visible";
+});
 
 //Ввод текста
 const inputTextDiv = createSettingsBlock("Текст");

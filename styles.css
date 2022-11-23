@@ -38,7 +38,6 @@
   height: 500px;
   position: relative;
   transition: all 0.25s;
-  padding: 20px;
 }
 
 .rotate {
@@ -85,10 +84,33 @@
   cursor: pointer;
 }
 
+.saveBtn{
+ position: absolute;
+ right: 32px;
+ bottom: 32px; 
+ background-color: #141615;
+ border: none;
+ width: 32px;
+ height: 32px;
+ border: 1px solid white;
+ border-radius: 8px;
+ transition: all 0.25s;
+ cursor: pointer;
+}
+.saveBtn:hover{
+  border: #141615 1px solid;
+  transition: all 0.25s;
+}
+.saveBtn:active{
+  border: 1px solid #141615;
+  width: 36px;
+  height: 36px;
+}
+
 .img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-color: #141615;
 }
 
 .darkBtn {
@@ -325,7 +347,7 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
 }
 
 .dimensionsBorder{
-  box-shadow: 5px 5px 10px rgb(0 0 0 / 20%), 1px 1px 0 rgb(255 255 255 / 40%) inset, -1px -1px 0 rgb(255 255 255 / 10%) inset, 10px 10px 20px rgb(0 0 0 / 10%) inset;
+  border: gray 1px solid;
 }
 
 .autoDimensions{
@@ -356,12 +378,7 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   padding: 3px 0;
   text-shadow: none;
   font-family: 'Comfortaa', sans-serif;
-  transform: translate(-100%,-50%) rotate(180deg);
-  writing-mode: vertical-rl;
-  text-orientation: sideways;
-  text-combine-upright: digits 4;
-  word-wrap: normal;
-  white-space: pre-wrap;
+  transform: translate(-100%,-50%) rotate(-90deg);
   max-width: 40px;
   color: rgba(149, 229, 255, 0.418);
   cursor: pointer;
