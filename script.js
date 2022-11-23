@@ -242,6 +242,7 @@ imgText.style.fontSize = 40 + "px";
 selectSize.addEventListener("input", (e) => {
   const value = e.target.value;
   imgText.style.fontSize = value + "px";
+  resetDimensions();
   updateTextSupportDimensions();
 });
 //Выбор масштаба
@@ -373,6 +374,12 @@ function updateTextSupportDimensions() {
   textSupportHeight.innerText = h + "мм";
 }
 
+//Сброс указанных размеров подложки на автоматические
+function resetDimensions() {
+  imgTextDiv.style.width = "";
+  imgTextDiv.style.height = "";
+}
+
 // Настройки абзаца
 const selectParaSettingsDiv = createSettingsBlock("Абзац");
 const selectParaSettings = createTag(
@@ -404,7 +411,7 @@ rangeLineHeight.step = pluginData.paragraphSettings.lineHeight.step;
 rangeLineHeight.addEventListener("input", (e) => {
   const value = e.target.value;
   imgText.style.lineHeight = value + "%";
-
+  resetDimensions();
   updateTextSupportDimensions();
 });
 
@@ -433,6 +440,7 @@ rangeSybmbolWidth.step = pluginData.paragraphSettings.lineSymbolSpacing.step;
 rangeSybmbolWidth.addEventListener("input", (e) => {
   const value = e.target.value;
   imgText.style.letterSpacing = value + "px";
+  resetDimensions();
   updateTextSupportDimensions();
 });
 
