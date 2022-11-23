@@ -214,7 +214,9 @@ imageSaveBtn.addEventListener("click", (e) => {
     backgroundColor: "#141615",
   }).then(function (canvas) {
     var link = document.createElement("a");
-    link.download = "filename.png";
+    link.download = `${imgText.innerText.substring(0, 20)}_${window
+      .getComputedStyle(imgText)
+      .fontFamily.substring(0, 20)}.jpg`;
     link.href = canvas.toDataURL("image/jpeg");
     link.click();
   });
