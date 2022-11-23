@@ -173,6 +173,7 @@ function createSettingsBlock(description) {
 
 //Создание блоков для изображения
 const imageTag = createTag(["imgTag"], "div", pluginBase);
+imageTag.id = "imageTag";
 const imgg = createTag("img", "div", imageTag);
 const imgTextDiv = createTag(["imgText", "flexCenter"], "div", imageTag);
 const imgText = createTag("", "p", imgTextDiv);
@@ -200,7 +201,9 @@ imageSaveBtn.innerHTML = pluginData.saveButton.icon;
 
 imageSaveBtn.addEventListener("click", (e) => {
   imageSaveBtn.style.visibility = "hidden";
-  imageTag.focus();
+  let linkForSafety = document.createElement("a");
+  linkForSafety.href = "#imageTag";
+  linkForSafety.click();
   /*const context = canvasSave.getContext("2d");
 
   context.setTransform(1, 0, 0, 1, 0, 0);
@@ -213,7 +216,7 @@ imageSaveBtn.addEventListener("click", (e) => {
     height: 500,
     backgroundColor: "#141615",
   }).then(function (canvas) {
-    var link = document.createElement("a");
+    let link = document.createElement("a");
     link.download = `${imgText.innerText.substring(0, 20)}_${window
       .getComputedStyle(imgText)
       .fontFamily.substring(0, 20)}.jpg`;
