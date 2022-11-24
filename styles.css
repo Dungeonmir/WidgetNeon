@@ -360,9 +360,6 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   white-space: pre-wrap;
 }
 
-.dimensionsBorder {
-  border: gray 1px solid;
-}
 
 .autoDimensions {
   width: auto;
@@ -458,4 +455,34 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   width: 100%;
   height: 30px;
   border-bottom: none;
+}
+
+.btnToRect {
+  border-radius: 0px;
+}
+
+.btnRectCircle {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--borderColor);
+  cursor: pointer;
+}
+
+.btnToCircle {
+  border-radius: 50%;
+}
+
+.imgTextBoxShadow {
+  box-shadow:
+    5px 5px 10px rgb(0 0 0 / 20%),
+    1px 1px 0 rgb(255 255 255 / 40%) inset,
+    -1px -1px 0 rgb(255 255 255 / 10%) inset,
+    10px 10px 20px rgb(0 0 0 / 10%) inset;
+}
+
+.imgTextBorder {
+  border: 1px solid gray;
 }

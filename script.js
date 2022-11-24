@@ -208,21 +208,24 @@ imageSaveBtn.addEventListener("click", (e) => {
   linkForSafety.click();
 
   imgTextDiv.style.margin = '150px'
-  html2canvas(imageTag, {
-    //canvas: canvasSave,
-    scale: 1,
-    width: 700,
-    height: 700,
-    backgroundColor: "#141615",
-  }).then(function (canvas) {
-    imgTextDiv.style.margin = ''
-    let link = document.createElement("a");
-    link.download = `${imgText.innerText.substring(0, 20)}_${window
-      .getComputedStyle(imgText)
-      .fontFamily.substring(0, 20)}.jpg`;
-    link.href = canvas.toDataURL("image/jpeg");
-    link.click();
-  });
+  imgTextDiv.classList.remove("imgTextBoxShadow");
+  imgTextDiv.classList.add('imgTextBorder')
+
+  //saving
+  html2canvas(imageTag, { scale: 1, width: 700, height: 700, backgroundColor: "#141615", }).then(
+    function (canvas) {
+      imgTextDiv.style.margin = ''
+
+      imgTextDiv.classList.remove("imgTextBorder");
+      imgTextDiv.classList.add('imgTextBoxShadow')
+
+      let link = document.createElement("a");
+      link.download = `${imgText.innerText.substring(0, 20)}_${window
+        .getComputedStyle(imgText)
+        .fontFamily.substring(0, 20)}.jpg`;
+      link.href = canvas.toDataURL("image/jpeg");
+      link.click();
+    });
 
   imageSaveBtn.style.visibility = "visible";
 });
@@ -335,7 +338,7 @@ pluginData.textColors.map((value) => {
 });
 
 // Подложка
-imgTextDiv.classList.add("dimensionsBorder");
+imgTextDiv.classList.add("imgTextBoxShadow");
 const textSupportHeightBorder = createTag(
   ["supportStyleHeightBorder", "border1px"],
   "div",
@@ -393,8 +396,27 @@ textSupportHeightInput.addEventListener("focusout", focusOutHandler);
 textSupportHeightInput.type = "number";
 
 //Кнопка для смены вида подложки
-// todo const btnToRect = createTag(['btnToRect'], 'div', imgTextDiv)
+const btnToRect = createTag(['btnToCircle', 'btnRectCircle'], 'div', imgTextDiv)
+btnToRect.addEventListener('click', (() => {
+  if (btnToRect.classList.contains('btnToRect')) {
+    btnToRect.classList.remove('btnToRect')
+    btnToRect.classList.add('btnToCircle')
 
+    imgTextDiv.style.borderRadius = '0px'
+    imgTextDiv.style.height = ''
+    imgTextDiv.style.width = ''
+    updateTextSupportDimensions()
+  }
+  else {
+    btnToRect.classList.remove('btnToCircle')
+    btnToRect.classList.add('btnToRect')
+
+    imgTextDiv.style.borderRadius = '50%'
+    imgTextDiv.style.height = window.getComputedStyle(imgTextDiv).width
+    imgTextDiv.style.width = window.getComputedStyle(imgTextDiv).width
+    updateTextSupportDimensions()
+  }
+}))
 //Действия после загрузки DOM дерева
 window.addEventListener("DOMContentLoaded", (event) => {
   updateTextSupportDimensions();
