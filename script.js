@@ -17,8 +17,9 @@ const pluginData = {
     "rgba(234,236,230,255)",
     "rgba(253,212,131,255)",
     "rgba(255,159,28,255)",
-    "rgba(253,51,53,255)",
     "rgba(248,5,46,255)",
+    "rgba(138,43,226, 255)",
+
     "rgba(248,1,186,255)",
     "rgba(6,205,248,255)",
     "rgba(4,1,255,255)",
@@ -307,7 +308,7 @@ pluginData.textColors.map((value) => {
     updateTextSupportDimensions();
 
     const value = e.target.value;
-    imgText.style.color = value;
+    imgText.style.color = "white";
     let rgb = value
       .replace(/[^\d,]/g, "")
       .split(",")
@@ -321,18 +322,15 @@ pluginData.textColors.map((value) => {
       } else return color;
     }
     imgText.style.textShadow = `
-        0px 0px 4px rgba(${ligther(0, 1)}, ${ligther(1, 1)}, ${ligther(
-      2,
-      1
-    )},0.8), 
+        0px 0px 4px rgba(${ligther(0, 1)}, ${ligther(1, 1)}, ${ligther(2, 1)},255),
         0px 0px 20px rgba(${ligther(0, 2)}, ${ligther(1, 2)}, ${ligther(
       2,
       2
-    )},0.8),
+    )},255),
         0px 0px 40px rgba(${ligther(0, 3)}, ${ligther(1, 3)}, ${ligther(
       2,
       3
-    )},0.8)
+    )},255)
         `.toString();
   });
 });
