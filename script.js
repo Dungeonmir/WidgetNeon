@@ -203,6 +203,7 @@ imageSaveBtn.innerHTML = pluginData.saveButton.icon;
 
 imageSaveBtn.addEventListener("click", (e) => {
   imageSaveBtn.style.visibility = "hidden";
+  btnToRect.style.visibility = 'hidden'
   let linkForSafety = document.createElement("a");
   linkForSafety.href = "#imageTag";
   linkForSafety.click();
@@ -228,6 +229,7 @@ imageSaveBtn.addEventListener("click", (e) => {
     });
 
   imageSaveBtn.style.visibility = "visible";
+  btnToRect.style.visibility = 'visible'
 });
 
 //Ввод текста
