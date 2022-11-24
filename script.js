@@ -19,7 +19,6 @@ const pluginData = {
     "rgba(255,159,28,255)",
     "rgba(248,5,46,255)",
     "rgba(138,43,226, 255)",
-
     "rgba(248,1,186,255)",
     "rgba(6,205,248,255)",
     "rgba(4,1,255,255)",
@@ -146,6 +145,8 @@ const pluginData = {
   },
 };
 
+
+
 //Создание и вставка html-тега
 function createTag(tagName, tagType = "div", parentTag) {
   const tag = document.createElement(tagType);
@@ -205,18 +206,16 @@ imageSaveBtn.addEventListener("click", (e) => {
   let linkForSafety = document.createElement("a");
   linkForSafety.href = "#imageTag";
   linkForSafety.click();
-  /*const context = canvasSave.getContext("2d");
 
-  context.setTransform(1, 0, 0, 1, 0, 0);
-  context.clearRect(0, 0, canvasSave.width, canvasSave.height);*/
-
+  imgTextDiv.style.margin = '150px'
   html2canvas(imageTag, {
     //canvas: canvasSave,
     scale: 1,
-    width: 500,
-    height: 500,
+    width: 700,
+    height: 700,
     backgroundColor: "#141615",
   }).then(function (canvas) {
+    imgTextDiv.style.margin = ''
     let link = document.createElement("a");
     link.download = `${imgText.innerText.substring(0, 20)}_${window
       .getComputedStyle(imgText)
@@ -392,6 +391,9 @@ textSupportWidthInput.addEventListener("focusout", focusOutHandler);
 textSupportHeight.addEventListener("click", focusInHandler);
 textSupportHeightInput.addEventListener("focusout", focusOutHandler);
 textSupportHeightInput.type = "number";
+
+//Кнопка для смены вида подложки
+// todo const btnToRect = createTag(['btnToRect'], 'div', imgTextDiv)
 
 //Действия после загрузки DOM дерева
 window.addEventListener("DOMContentLoaded", (event) => {
