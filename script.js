@@ -483,7 +483,7 @@ rangeSybmbolWidth.addEventListener("input", (e) => {
 const textSettiingsBtns = createTag("flexAround", "div", selectParaSettings);
 textSettiingsBtns.style.width = "100%";
 //Выравнивание текста
-const textAlignDiv = createTag(["flexInline"], "div", textSettiingsBtns);
+const textAlignDiv = createTag(["flexInline", 'svgIconInside'], "div", textSettiingsBtns);
 pluginData.paragraphSettings.textAlign.map((data) => {
   const btn = createTag(
     ["selectBtnStyleBtn", "flexCenter"],

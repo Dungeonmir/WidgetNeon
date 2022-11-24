@@ -1,5 +1,13 @@
 .pluginBase {
   font-family: 'Comfortaa', sans-serif;
+
+  --borderColor: rgb(244, 67, 54);
+  --backColor: rgb(33, 33, 33);
+  --textColor: #9e9e9e;
+}
+
+.pluginBase svg {
+  filter: brightness(10);
 }
 
 .flexCenter {
@@ -53,7 +61,7 @@
 }
 
 .descriptionTag {
-  color: darkblue;
+  color: var(--borderColor);
   margin: 0;
   margin-left: 8px;
   margin-bottom: 4px;
@@ -84,24 +92,26 @@
   cursor: pointer;
 }
 
-.saveBtn{
- position: absolute;
- right: 32px;
- bottom: 32px; 
- background-color: #141615;
- border: none;
- width: 32px;
- height: 32px;
- border: 1px solid white;
- border-radius: 8px;
- transition: all 0.25s;
- cursor: pointer;
+.saveBtn {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  background-color: #141615;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border: 1px solid white;
+  border-radius: 8px;
+  transition: all 0.25s;
+  cursor: pointer;
 }
-.saveBtn:hover{
+
+.saveBtn:hover {
   border: #141615 1px solid;
   transition: all 0.25s;
 }
-.saveBtn:active{
+
+.saveBtn:active {
   border: 1px solid #141615;
   width: 36px;
   height: 36px;
@@ -115,7 +125,7 @@
 
 .darkBtn {
   font-weight: bold;
-  background-color: darkblue;
+  background-color: var(--borderColor);
   color: white;
   font-family: 'Comforter Brush', cursive;
 }
@@ -126,9 +136,11 @@
   text-align: center;
   border: transparent;
   transition: all 0.2s;
-  border-radius: 0px;
+  border-radius: 8px;
   width: 100%;
   padding: 4px 0px;
+  background-color: var(--backColor);
+  color: white;
 }
 
 .inputStyle:focus,
@@ -141,7 +153,7 @@
 }
 
 .inputStyle::placeholder {
-  color: #bcbcbc;
+  color: var(--textColor)
 }
 
 .selectStyle {
@@ -153,20 +165,19 @@
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
-  border-bottom: 1px solid darkblue;
+  border-bottom: 1px solid var(--borderColor);
   transition: all 0.2s;
-  border-radius: 0px;
   font-size: 1rem;
   text-align: center;
   margin: 4px;
   cursor: pointer;
   padding: 4px 0px;
+  border-radius: 8px;
 }
 
 .selectStyle:focus,
 .selectStyle:active {
   transition: all 0.2s;
-  border-radius: 8px;
   outline: none;
   background-color: #fff;
   background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
@@ -175,13 +186,13 @@
 .selectBtnStyle {
   border: none;
   width: 100%;
-  border-bottom: 1px solid darkblue;
+  border-bottom: 1px solid var(--borderColor);
   padding: 4px 0px;
 
 }
 
 .selectBtnStyleBtn {
-  border: 1px solid darkblue;
+  border: 1px solid var(--borderColor);
   width: 2rem;
   height: 2rem;
   margin: 2px;
@@ -207,6 +218,7 @@
 .svgIconInside svg {
   width: 24px;
   height: 24px;
+  filter: invert();
 }
 
 .m-2 {
@@ -224,10 +236,12 @@
     gap: 30px;
   }
 }
-.sliderCustom{
+
+.sliderCustom {
   padding-bottom: 5px;
   padding-top: 5px;
 }
+
 input[type=range].sliderCustom {
   width: 100%;
   margin: 5.4px 0;
@@ -241,7 +255,7 @@ input[type=range].sliderCustom:focus {
 }
 
 input[type=range].sliderCustom::-webkit-slider-runnable-track {
-  background: #eeeeee;
+  background: var(--backColor);
   border: 0;
   border-radius: 8.9px;
   width: 100%;
@@ -254,7 +268,7 @@ input[type=range].sliderCustom::-webkit-slider-thumb {
   margin-top: -5.4px;
   width: 8px;
   height: 20px;
-  background: darkblue;
+  background: var(--borderColor);
   border: 0;
   border-radius: 3px;
   cursor: pointer;
@@ -262,12 +276,12 @@ input[type=range].sliderCustom::-webkit-slider-thumb {
 }
 
 input[type=range].sliderCustom:focus::-webkit-slider-runnable-track {
-  background: #e4e4e4;
+  background: var(--backColor);
   transition: all 0.25s;
 }
 
 input[type=range].sliderCustom::-moz-range-track {
-  background: #eeeeee;
+  background: var(--backColor);
   border: 0;
   border-radius: 8.9px;
   width: 100%;
@@ -278,7 +292,7 @@ input[type=range].sliderCustom::-moz-range-track {
 input[type=range].sliderCustom::-moz-range-thumb {
   width: 8px;
   height: 20px;
-  background: darkblue;
+  background: var(--borderColor);
   border: 0;
   border-radius: 3px;
   cursor: pointer;
@@ -295,13 +309,13 @@ input[type=range].sliderCustom::-ms-track {
 }
 
 input[type=range].sliderCustom::-ms-fill-lower {
-  background: #dfdfdf;
+  background: var(--backColor);
   border: 0;
   border-radius: 17.8px;
 }
 
 input[type=range].sliderCustom::-ms-fill-upper {
-  background: #eeeeee;
+  background: var(--backColor);
   border: 0;
   border-radius: 17.8px;
 }
@@ -309,7 +323,7 @@ input[type=range].sliderCustom::-ms-fill-upper {
 input[type=range].sliderCustom::-ms-thumb {
   width: 8px;
   height: 20px;
-  background: darkblue;
+  background: var(--borderColor);
   border: 0;
   border-radius: 3px;
   cursor: pointer;
@@ -346,21 +360,21 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   white-space: pre-wrap;
 }
 
-.dimensionsBorder{
+.dimensionsBorder {
   border: gray 1px solid;
 }
 
-.autoDimensions{
+.autoDimensions {
   width: auto;
   height: auto;
 }
 
-.supportStyleHeight{
+.supportStyleHeight {
   font-size: small;
   position: absolute;
   top: -30px;
   left: 50%;
-  transform: translate(-50%,-100%);
+  transform: translate(-50%, -100%);
   background-color: #141615;
   padding: 0 3px;
   text-shadow: none;
@@ -369,7 +383,8 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   color: rgba(149, 229, 255, 0.418);
   cursor: pointer;
 }
-.supportStyleWidth{
+
+.supportStyleWidth {
   font-size: small;
   position: absolute;
   top: 50%;
@@ -378,22 +393,23 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   padding: 3px 0;
   text-shadow: none;
   font-family: 'Comfortaa', sans-serif;
-  transform: translate(-100%,-50%) rotate(-90deg);
+  transform: translate(-100%, -50%) rotate(-90deg);
   max-width: 40px;
   color: rgba(149, 229, 255, 0.418);
   cursor: pointer;
-  
+
 }
-.border1px{
+
+.border1px {
   border: solid 1px rgba(149, 229, 255, 0.418);
 }
 
-.supportStyleHeightInput{
+.supportStyleHeightInput {
   font-size: small;
   position: absolute;
   top: -30px;
   left: 50%;
-  transform: translate(-50%,-100%);
+  transform: translate(-50%, -100%);
   background-color: #141615;
   text-shadow: none;
   font-family: 'Comfortaa', sans-serif;
@@ -402,7 +418,7 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   text-align: center;
 }
 
-.supportStyleWidthInput{
+.supportStyleWidthInput {
   font-size: small;
   position: absolute;
   top: 50%;
@@ -410,10 +426,12 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   background-color: #141615;
   text-shadow: none;
   font-family: 'Comfortaa', sans-serif;
-  transform: translate(-50%,-50%) rotate(-90deg);
-  
+  transform: translate(-50%, -50%) rotate(-90deg);
+
 }
-.supportStyleHeightInput, .supportStyleWidthInput{
+
+.supportStyleHeightInput,
+.supportStyleWidthInput {
   color: rgba(149, 229, 255, 0.418);
   max-width: 80px;
   text-align: center;
@@ -421,7 +439,8 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   border: none;
   visibility: hidden;
 }
-.supportStyleHeightBorder{
+
+.supportStyleHeightBorder {
   position: absolute;
   top: 0%;
   left: -25px;
@@ -431,7 +450,7 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   border-right: none;
 }
 
-.supportStyleWidthBorder{
+.supportStyleWidthBorder {
   position: absolute;
   top: -25px;
   left: 0%;
