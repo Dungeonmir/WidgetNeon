@@ -1,2 +1,3 @@
 # WidgetNeon
- pure js and css widget
+![Интерфейс конструктора](https://i.ibb.co/4KD071B/Img-For-Github-Repo-1.png)
+Самостоятельный плагин, для создания шаблона неоновой вывески, написанный на чистом js, css, html.
