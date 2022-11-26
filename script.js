@@ -8,6 +8,12 @@ styles.innerHTML = `
 
 
 `; // скопировать стили сюда
+
+//<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js" defer></script>
+const scriptHTML2Canvas = createTag('', 'script', pluginBase)
+scriptHTML2Canvas.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js'
+
+
 pluginBase.classList.add("flexCenter");
 pluginBase.classList.add("pluginBase");
 
@@ -176,7 +182,7 @@ function createSettingsBlock(description) {
 //Создание блоков для изображения
 const imageTag = createTag(["imgTag"], "div", pluginBase);
 imageTag.id = "imageTag";
-const imgg = createTag("img", "div", imageTag);
+const imgBackground = createTag("img", "div", imageTag);
 const imgTextDiv = createTag(["imgText", "flexCenter"], "div", imageTag);
 const imgText = createTag("", "p", imgTextDiv);
 imgText.innerText = pluginData.startText;
