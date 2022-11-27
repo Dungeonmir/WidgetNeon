@@ -133,493 +133,487 @@ styles.innerHTML = `
 
 
 .pluginBase {
-    font-family: 'Comfortaa', sans-serif;
-  
-    --borderColor: rgb(244, 67, 54);
-    --backColor: rgb(33, 33, 33);
-    --textColor: #9e9e9e;
-  }
-  
-  .pluginBase svg {
-    filter: brightness(10);
-  }
-  
-  .flexCenter {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .flexAround {
-    display: flex;
-    flex-wrap: wrap;
-  
-    justify-content: space-between;
-  }
-  
-  .flexCol {
-    flex-direction: column;
-  }
-  
-  .flexRow {
-    flex-direction: row;
-  }
-  
-  .flexInline {
-    display: inline-flex;
-    gap: 5px;
-  }
-  
-  .flexLeft {
-    align-items: flex-start;
-  }
-  
-  .imgTag {
-    width: 500px;
-    height: 500px;
-    position: relative;
-    transition: all 0.25s;
-  }
-  
-  .rotate {
-    transform-origin: 0 0;
-    transform: rotate(90deg);
-  }
-  
+  font-family: 'Comfortaa', sans-serif;
+
+  --borderColor: rgb(244, 67, 54);
+  --backColor: rgb(33, 33, 33);
+  --textColor: #9e9e9e;
+}
+
+.pluginBase svg {
+  filter: brightness(10);
+}
+
+.flexCenter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexAround {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
+.flexRow {
+  flex-direction: row;
+}
+
+.flexInline {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.flexLeft {
+  align-items: flex-start;
+}
+
+.imgTag {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  transition: all 0.25s;
+}
+
+.rotate {
+  transform-origin: 0 0;
+  transform: rotate(90deg);
+}
+
+.settingsTag {
+  max-width: 500px;
+  max-height: 500px;
+  padding: 20px;
+  gap: 10px;
+}
+
+.descriptionTag {
+  color: var(--borderColor);
+  margin: 0;
+  margin-left: 8px;
+  margin-bottom: 4px;
+}
+
+.imgText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-shadow: 0 0 4px rgb(24, 182, 196), 0 0 20px #3ef, 0 0 40px #3ef;
+  color: rgb(204, 251, 255);
+  font-family: 'Bad Script', cursive;
+  user-select: none;
+  line-height: 100%;
+  max-width: 495px;
+  max-height: 495px;
+
+}
+
+.imgText p {
+  border-radius: 8px;
+  margin: 15px 30px;
+  padding: 4px;
+  max-width: 495px;
+  max-height: 495px;
+  cursor: pointer;
+}
+
+.saveBtn {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  background-color: #141615;
+}
+
+
+
+.img {
+  width: 100%;
+  height: 100%;
+  background-color: #141615;
+}
+
+.darkBtn {
+  font-weight: bold;
+  background-color: var(--borderColor);
+  color: white;
+  font-family: 'Comforter Brush', cursive;
+}
+
+.inputStyle {
+  padding: 0px;
+  font-size: 18px;
+  text-align: center;
+  border: transparent;
+  transition: all 0.2s;
+  border-radius: 8px;
+  width: 100%;
+  padding: 4px 0px;
+  background-color: var(--backColor);
+  color: white;
+}
+
+.inputStyle:focus,
+.inputStyle:active {
+  border-radius: 8px;
+  border: transparent;
+  transition: all 0.2s;
+  outline: none;
+
+}
+
+.inputStyle::placeholder {
+  color: var(--textColor)
+}
+
+.selectStyle {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  border-bottom: 1px solid var(--borderColor);
+  transition: all 0.2s;
+  font-size: 1rem;
+  text-align: center;
+  margin: 4px;
+  cursor: pointer;
+  padding: 4px 0px;
+  border-radius: 8px;
+}
+
+.selectStyle:focus,
+.selectStyle:active {
+  transition: all 0.2s;
+  outline: none;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+.selectBtnStyle {
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid var(--borderColor);
+  padding: 4px 0px;
+
+}
+
+.selectBtnStyleBtn {
+  border: 1px solid white;
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.selectBtnStyleBtn:hover {
+  border-radius: 10px;
+  transition: all 0.25s;
+}
+
+.selectBtnStyleBtn:active {
+  box-shadow: 0px 0px 4px black inset, 4px 4px 6px black inset;
+}
+
+.selectBtnStyleBtn svg {
+  user-select: none;
+  pointer-events: none;
+}
+
+.svgIconInside svg {
+  width: 24px;
+  height: 24px;
+  filter: invert();
+}
+
+.m-2 {
+  margin: 2px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .imgTag,
   .settingsTag {
-    max-width: 500px;
-    max-height: 500px;
-    padding: 20px;
-    gap: 10px;
+    padding: 0 0;
   }
-  
-  .descriptionTag {
-    color: var(--borderColor);
-    margin: 0;
-    margin-left: 8px;
-    margin-bottom: 4px;
+
+  .pluginBase {
+    gap: 30px;
   }
-  
-  .imgText {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    text-shadow: 0 0 4px rgb(24, 182, 196), 0 0 20px #3ef, 0 0 40px #3ef;
-    color: rgb(204, 251, 255);
-    font-family: 'Bad Script', cursive;
-    user-select: none;
-    line-height: 100%;
-    max-width: 495px;
-    max-height: 495px;
-  
-  }
-  
-  .imgText p {
-    border-radius: 8px;
-    margin: 15px 30px;
-    padding: 4px;
-    max-width: 495px;
-    max-height: 495px;
-    cursor: pointer;
-  }
-  
-  .saveBtn {
-    position: absolute;
-    right: 32px;
-    bottom: 32px;
-    background-color: #141615;
-    border: none;
-    width: 32px;
-    height: 32px;
-    border: 1px solid white;
-    border-radius: 8px;
-    transition: all 0.25s;
-    cursor: pointer;
-  }
-  
-  .saveBtn:hover {
-    border: #141615 1px solid;
-    transition: all 0.25s;
-  }
-  
-  .saveBtn:active {
-    border: 1px solid #141615;
-    width: 36px;
-    height: 36px;
-  }
-  
-  .img {
-    width: 100%;
-    height: 100%;
-    background-color: #141615;
-  }
-  
-  .darkBtn {
-    font-weight: bold;
-    background-color: var(--borderColor);
-    color: white;
-    font-family: 'Comforter Brush', cursive;
-  }
-  
-  .inputStyle {
-    padding: 0px;
-    font-size: 18px;
-    text-align: center;
-    border: transparent;
-    transition: all 0.2s;
-    border-radius: 8px;
-    width: 100%;
-    padding: 4px 0px;
-    background-color: var(--backColor);
-    color: white;
-  }
-  
-  .inputStyle:focus,
-  .inputStyle:active {
-    border-radius: 8px;
-    border: transparent;
-    transition: all 0.2s;
-    outline: none;
-  
-  }
-  
-  .inputStyle::placeholder {
-    color: var(--textColor)
-  }
-  
-  .selectStyle {
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: inherit;
-    line-height: inherit;
-    border-bottom: 1px solid var(--borderColor);
-    transition: all 0.2s;
-    font-size: 1rem;
-    text-align: center;
-    margin: 4px;
-    cursor: pointer;
-    padding: 4px 0px;
-    border-radius: 8px;
-  }
-  
-  .selectStyle:focus,
-  .selectStyle:active {
-    transition: all 0.2s;
-    outline: none;
-    background-color: #fff;
-    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
-  }
-  
-  .selectBtnStyle {
-    border: none;
-    width: 100%;
-    border-bottom: 1px solid var(--borderColor);
-    padding: 4px 0px;
-  
-  }
-  
-  .selectBtnStyleBtn {
-    border: 1px solid var(--borderColor);
-    width: 2rem;
-    height: 2rem;
-    margin: 2px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.25s;
-  }
-  
-  .selectBtnStyleBtn:hover {
-    border-radius: 25px;
-    transition: all 0.25s;
-  }
-  
-  .selectBtnStyleBtn:active {
-    box-shadow: 0px 0px 4px black inset, 4px 4px 6px black inset;
-  }
-  
-  .selectBtnStyleBtn svg {
-    user-select: none;
-    pointer-events: none;
-  }
-  
-  .svgIconInside svg {
-    width: 24px;
-    height: 24px;
-    filter: invert();
-  }
-  
-  .m-2 {
-    margin: 2px;
-  }
-  
-  @media screen and (max-width: 600px) {
-  
-    .imgTag,
-    .settingsTag {
-      padding: 0 0;
-    }
-  
-    .pluginBase {
-      gap: 30px;
-    }
-  }
-  
-  .sliderCustom {
-    padding-bottom: 5px;
-    padding-top: 5px;
-  }
-  
+}
+
+.sliderCustom {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+input[type=range].sliderCustom {
+  width: 100%;
+  margin: 5.4px 0;
+  background-color: transparent;
+  appearance: none;
+  transition: all 0.25s;
+}
+
+input[type=range].sliderCustom:focus {
+  outline: none;
+}
+
+input[type=range].sliderCustom::-webkit-slider-runnable-track {
+  background: var(--backColor);
+  border: 0;
+  border-radius: 8.9px;
+  width: 100%;
+  height: 9.2px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+input[type=range].sliderCustom::-webkit-slider-thumb {
+  margin-top: -5.4px;
+  width: 8px;
+  height: 20px;
+  background: var(--borderColor);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type=range].sliderCustom:focus::-webkit-slider-runnable-track {
+  background: var(--backColor);
+  transition: all 0.25s;
+}
+
+input[type=range].sliderCustom::-moz-range-track {
+  background: var(--backColor);
+  border: 0;
+  border-radius: 8.9px;
+  width: 100%;
+  height: 9.2px;
+  cursor: pointer;
+}
+
+input[type=range].sliderCustom::-moz-range-thumb {
+  width: 8px;
+  height: 20px;
+  background: var(--borderColor);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type=range].sliderCustom::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 5.4px 0;
+  color: transparent;
+  width: 100%;
+  height: 9.2px;
+  cursor: pointer;
+}
+
+input[type=range].sliderCustom::-ms-fill-lower {
+  background: var(--backColor);
+  border: 0;
+  border-radius: 17.8px;
+}
+
+input[type=range].sliderCustom::-ms-fill-upper {
+  background: var(--backColor);
+  border: 0;
+  border-radius: 17.8px;
+}
+
+input[type=range].sliderCustom::-ms-thumb {
+  width: 8px;
+  height: 20px;
+  background: var(--borderColor);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type=range].sliderCustom:focus::-ms-fill-lower {
+  background: #e4e4e4;
+  transition: all 0.25s;
+}
+
+input[type=range].sliderCustom:focus::-ms-fill-upper {
+  background: #e4e4e4;
+  transition: all 0.25s;
+}
+
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+  how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align:auto) {
+
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
   input[type=range].sliderCustom {
-    width: 100%;
-    margin: 5.4px 0;
-    background-color: transparent;
-    appearance: none;
-    transition: all 0.25s;
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
-  
-  input[type=range].sliderCustom:focus {
-    outline: none;
-  }
-  
-  input[type=range].sliderCustom::-webkit-slider-runnable-track {
-    background: var(--backColor);
-    border: 0;
-    border-radius: 8.9px;
-    width: 100%;
-    height: 9.2px;
-    cursor: pointer;
-    transition: all 0.25s;
-  }
-  
-  input[type=range].sliderCustom::-webkit-slider-thumb {
-    margin-top: -5.4px;
-    width: 8px;
-    height: 20px;
-    background: var(--borderColor);
-    border: 0;
-    border-radius: 3px;
-    cursor: pointer;
-    -webkit-appearance: none;
-  }
-  
-  input[type=range].sliderCustom:focus::-webkit-slider-runnable-track {
-    background: var(--backColor);
-    transition: all 0.25s;
-  }
-  
-  input[type=range].sliderCustom::-moz-range-track {
-    background: var(--backColor);
-    border: 0;
-    border-radius: 8.9px;
-    width: 100%;
-    height: 9.2px;
-    cursor: pointer;
-  }
-  
-  input[type=range].sliderCustom::-moz-range-thumb {
-    width: 8px;
-    height: 20px;
-    background: var(--borderColor);
-    border: 0;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  input[type=range].sliderCustom::-ms-track {
-    background: transparent;
-    border-color: transparent;
-    border-width: 5.4px 0;
-    color: transparent;
-    width: 100%;
-    height: 9.2px;
-    cursor: pointer;
-  }
-  
-  input[type=range].sliderCustom::-ms-fill-lower {
-    background: var(--backColor);
-    border: 0;
-    border-radius: 17.8px;
-  }
-  
-  input[type=range].sliderCustom::-ms-fill-upper {
-    background: var(--backColor);
-    border: 0;
-    border-radius: 17.8px;
-  }
-  
-  input[type=range].sliderCustom::-ms-thumb {
-    width: 8px;
-    height: 20px;
-    background: var(--borderColor);
-    border: 0;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-top: 0px;
-    /*Needed to keep the Edge thumb centred*/
-  }
-  
-  input[type=range].sliderCustom:focus::-ms-fill-lower {
-    background: #e4e4e4;
-    transition: all 0.25s;
-  }
-  
-  input[type=range].sliderCustom:focus::-ms-fill-upper {
-    background: #e4e4e4;
-    transition: all 0.25s;
-  }
-  
-  /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
-    how to remove the virtical space around the range input in IE*/
-  @supports (-ms-ime-align:auto) {
-  
-    /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
-    input[type=range].sliderCustom {
-      margin: 0;
-      /*Edge starts the margin from the thumb, not the track as other browsers do*/
-    }
-  }
-  
-  .verticalText {
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    text-combine-upright: digits 4;
-    word-wrap: normal;
-    white-space: pre-wrap;
-  }
-  
-  
-  .autoDimensions {
-    width: auto;
-    height: auto;
-  }
-  
-  .supportStyleHeight {
-    font-size: small;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    background-color: #141615;
-    padding: 0 3px;
-    text-shadow: none;
-    font-family: 'Comfortaa', sans-serif;
-    max-width: 40px;
-    color: rgba(149, 229, 255, 0.418);
-    cursor: pointer;
-  }
-  
-  .supportStyleWidth {
-    font-size: small;
-    position: absolute;
-    top: 50%;
-    left: -30px;
-    background-color: #141615;
-    padding: 3px 0;
-    text-shadow: none;
-    font-family: 'Comfortaa', sans-serif;
-    transform: translate(-100%, -50%) rotate(-90deg);
-    max-width: 40px;
-    color: rgba(149, 229, 255, 0.418);
-    cursor: pointer;
-  
-  }
-  
-  .border1px {
-    border: solid 1px rgba(149, 229, 255, 0.418);
-  }
-  
-  .supportStyleHeightInput {
-    font-size: small;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    background-color: #141615;
-    text-shadow: none;
-    font-family: 'Comfortaa', sans-serif;
-    max-width: 80px;
-    color: rgba(149, 229, 255, 0.418);
-    text-align: center;
-  }
-  
-  .supportStyleWidthInput {
-    font-size: small;
-    position: absolute;
-    top: 50%;
-    left: -40px;
-    background-color: #141615;
-    text-shadow: none;
-    font-family: 'Comfortaa', sans-serif;
-    transform: translate(-50%, -50%) rotate(-90deg);
-  
-  }
-  
-  .supportStyleHeightInput,
-  .supportStyleWidthInput {
-    color: rgba(149, 229, 255, 0.418);
-    max-width: 80px;
-    text-align: center;
-    outline: rgba(149, 229, 255, 0.418);
-    border: none;
-    visibility: hidden;
-  }
-  
-  .supportStyleHeightBorder {
-    position: absolute;
-    top: 0%;
-    left: -25px;
-    transform: translate(-50%, 0);
-    width: 30px;
-    height: 100%;
-    border-right: none;
-  }
-  
-  .supportStyleWidthBorder {
-    position: absolute;
-    top: -25px;
-    left: 0%;
-    transform: translate(0, -50%);
-    width: 100%;
-    height: 30px;
-    border-bottom: none;
-  }
-  
-  .btnToRect {
-    border-radius: 0px;
-  }
-  
-  .btnRectCircle {
-    position: absolute;
-    top: -40px;
-    left: -40px;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--borderColor);
-    cursor: pointer;
-  }
-  
-  .btnToCircle {
-    border-radius: 50%;
-  }
-  
-  .imgTextBoxShadow {
-    box-shadow:
-      5px 5px 10px rgb(0 0 0 / 20%),
-      1px 1px 0 rgb(255 255 255 / 40%) inset,
-      -1px -1px 0 rgb(255 255 255 / 10%) inset,
-      10px 10px 20px rgb(0 0 0 / 10%) inset;
-  }
-  
-  .imgTextBorder {
-    border: 1px solid gray;
-  }
+}
+
+.verticalText {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  text-combine-upright: digits 4;
+  word-wrap: normal;
+  white-space: pre-wrap;
+}
+
+
+.autoDimensions {
+  width: auto;
+  height: auto;
+}
+
+.supportStyleHeight {
+  font-size: small;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background-color: #141615;
+  padding-left: 3px;
+  padding-right: 5px;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+  max-width: 40px;
+  color: rgba(149, 229, 255, 0.418);
+  cursor: pointer;
+}
+
+.supportStyleWidth {
+  font-size: small;
+  position: absolute;
+  top: 50%;
+  left: -16px;
+  background-color: #141615;
+  padding-right: 5px;
+  padding-left: 3px;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+  transform: translate(-100%, -50%) rotate(-90deg);
+  max-width: 40px;
+  color: rgba(149, 229, 255, 0.418);
+  cursor: pointer;
+
+}
+
+.border1px {
+  border: solid 1px rgba(149, 229, 255, 0.418);
+}
+
+.supportStyleHeightInput {
+  font-size: small;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background-color: #141615;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+  max-width: 80px;
+  color: rgba(149, 229, 255, 0.418);
+  text-align: center;
+}
+
+.supportStyleWidthInput {
+  font-size: small;
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  background-color: #141615;
+  text-shadow: none;
+  font-family: 'Comfortaa', sans-serif;
+  transform: translate(-50%, -50%) rotate(-90deg);
+
+}
+
+.supportStyleHeightInput,
+.supportStyleWidthInput {
+  color: rgba(149, 229, 255, 0.418);
+  max-width: 80px;
+  text-align: center;
+  outline: rgba(149, 229, 255, 0.418);
+  border: none;
+  visibility: hidden;
+}
+
+.supportStyleHeightBorder {
+  position: absolute;
+  top: 0%;
+  left: -25px;
+  transform: translate(-50%, 0);
+  width: 30px;
+  height: 100%;
+  border-right: none;
+}
+
+.supportStyleWidthBorder {
+  position: absolute;
+  top: -25px;
+  left: 0%;
+  transform: translate(0, -50%);
+  width: 100%;
+  height: 30px;
+  border-bottom: none;
+}
+
+.btnRectCircle {
+
+  position: absolute;
+  right: 56px;
+  bottom: 16px;
+
+}
+
+.btnRectCircleIn {
+  border: white 2px dashed;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btnRectCircleInCircle {
+  border-radius: 50%;
+}
+
+.optionBtn {
+  background-color: #141615;
+}
+
+
+.imgTextBoxShadow {
+  box-shadow:
+    5px 5px 10px rgb(0 0 0 / 20%),
+    1px 1px 0 rgb(255 255 255 / 40%) inset,
+    -1px -1px 0 rgb(255 255 255 / 10%) inset,
+    10px 10px 20px rgb(0 0 0 / 10%) inset;
+}
+
+.imgTextBorder {
+  border: 1px solid gray;
+}
 
 `; // скопировать стили сюда
 
@@ -815,7 +809,7 @@ imgText.addEventListener("click", () => {
 const settingsTag = createTag(["settingsTag", "flexCenter"], "div", pluginBase);
 
 // Создание кнопки сохранения скриншота текста
-const imageSaveBtn = createTag(["saveBtn"], "button", imageTag);
+const imageSaveBtn = createTag(["saveBtn", "optionBtn", 'selectBtnStyleBtn'], "button", imageTag);
 //const canvasSave = createTag("", "canvas", pluginBase);
 //canvasSave.width = 500;
 //canvasSave.height = 500;
@@ -827,6 +821,9 @@ imageSaveBtn.addEventListener("click", (e) => {
   let linkForSafety = document.createElement("a");
   linkForSafety.href = "#imageTag";
   linkForSafety.click();
+
+
+
 
   imgTextDiv.style.margin = '150px'
   imgTextDiv.classList.remove("imgTextBoxShadow");
@@ -879,7 +876,7 @@ const selectFont = createTag(["flexAround"], "div", selectFontDiv);
 pluginData.textFonts.map((value, index) => {
   const fontOption = createTag(
     ["selectBtnStyleBtn", "flexCenter", "darkBtn"],
-    "btn",
+    "div",
     selectFont
   );
   fontOption.innerText = index + 1;
@@ -925,7 +922,7 @@ selectScale.addEventListener("input", (e) => {
 const selectColorDiv = createSettingsBlock("Цвет");
 const selectColor = createTag(["flexAround"], "div", selectColorDiv);
 pluginData.textColors.map((value) => {
-  const btn = createTag("selectBtnStyleBtn", "button", selectColor);
+  const btn = createTag("selectBtnStyleBtn", "div", selectColor);
   btn.value = value;
   btn.style.backgroundColor = value;
   btn.addEventListener("click", (e) => {
@@ -1011,6 +1008,10 @@ const focusOutHandler = (e) => {
   e.target.style.visibility = "hidden";
 };
 
+function pxToNumber(numberInPX) {
+  return parseInt(numberInPX, 10);
+}
+
 textSupportWidth.addEventListener("click", focusInHandler);
 textSupportWidthInput.addEventListener("focusout", focusOutHandler);
 textSupportHeight.addEventListener("click", focusInHandler);
@@ -1018,24 +1019,25 @@ textSupportHeightInput.addEventListener("focusout", focusOutHandler);
 textSupportHeightInput.type = "number";
 
 //Кнопка для смены вида подложки
-const btnToRect = createTag(['btnToCircle', 'btnRectCircle'], 'div', imgTextDiv)
+const btnToRect = createTag(['optionBtn', 'btnRectCircle', 'selectBtnStyleBtn'], 'button', imageTag)
+const figureInside = createTag(['btnRectCircleIn', 'btnRectCircleInCircle'], 'div', btnToRect)
 btnToRect.addEventListener('click', (() => {
-  if (btnToRect.classList.contains('btnToRect')) {
-    btnToRect.classList.remove('btnToRect')
-    btnToRect.classList.add('btnToCircle')
+  if (figureInside.classList.contains('btnRectCircleInCircle')) {
+    figureInside.classList.remove('btnRectCircleInCircle')
+
+    imgTextDiv.style.borderRadius = '50%'
+    makeRound()
+    updateTextSupportDimensions()
+  }
+  else {
+    figureInside.classList.add('btnRectCircleInCircle')
+
 
     imgTextDiv.style.borderRadius = '0px'
     imgTextDiv.style.height = ''
     imgTextDiv.style.width = ''
-    updateTextSupportDimensions()
-  }
-  else {
-    btnToRect.classList.remove('btnToCircle')
-    btnToRect.classList.add('btnToRect')
 
-    imgTextDiv.style.borderRadius = '50%'
-    imgTextDiv.style.height = window.getComputedStyle(imgTextDiv).width
-    imgTextDiv.style.width = window.getComputedStyle(imgTextDiv).width
+
     updateTextSupportDimensions()
   }
 }))
@@ -1044,12 +1046,33 @@ window.addEventListener("DOMContentLoaded", (event) => {
   updateTextSupportDimensions();
 });
 
+//make round w=h
+
+function makeRound() {
+  let w, h;
+  w = pxToNumber(window.getComputedStyle(imgTextDiv).width)
+  h = pxToNumber(window.getComputedStyle(imgTextDiv).height)
+  w > h ? h = w : w = h
+  imgTextDiv.style.width = w + 'px'
+  imgTextDiv.style.height = h + 'px'
+
+}
+
 //Обновление размера подложки
 function updateTextSupportDimensions() {
+  // Сделать w внутренним свойством
+  let insideW;
+  insideW = pxToNumber(window.getComputedStyle(imgTextDiv).width)
+  imgTextDiv.style.width = insideW + 'px'
+
   const realityScale = pluginData.currentData.realityScale;
+  if (!figureInside.classList.contains('btnRectCircleInCircle')) {
+    makeRound()
+  }
   let w, h;
   w = imgTextDiv.offsetWidth;
   h = imgTextDiv.offsetHeight;
+
   w *= realityScale;
   h *= realityScale;
   textSupportWidth.innerText = w + "мм";
