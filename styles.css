@@ -94,28 +94,12 @@
 
 .saveBtn {
   position: absolute;
-  right: 32px;
-  bottom: 32px;
+  right: 16px;
+  bottom: 16px;
   background-color: #141615;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border: 1px solid white;
-  border-radius: 8px;
-  transition: all 0.25s;
-  cursor: pointer;
 }
 
-.saveBtn:hover {
-  border: #141615 1px solid;
-  transition: all 0.25s;
-}
 
-.saveBtn:active {
-  border: 1px solid #141615;
-  width: 36px;
-  height: 36px;
-}
 
 .img {
   width: 100%;
@@ -192,17 +176,16 @@
 }
 
 .selectBtnStyleBtn {
-  border: 1px solid var(--borderColor);
-  width: 2rem;
-  height: 2rem;
+  border: 1px solid white;
+  width: 30px;
+  height: 30px;
   margin: 2px;
   cursor: pointer;
-  border-radius: 6px;
   transition: all 0.25s;
 }
 
 .selectBtnStyleBtn:hover {
-  border-radius: 25px;
+  border-radius: 10px;
   transition: all 0.25s;
 }
 
@@ -373,7 +356,8 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   left: 50%;
   transform: translate(-50%, -100%);
   background-color: #141615;
-  padding: 0 3px;
+  padding-left: 3px;
+  padding-right: 5px;
   text-shadow: none;
   font-family: 'Comfortaa', sans-serif;
   max-width: 40px;
@@ -385,9 +369,10 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   font-size: small;
   position: absolute;
   top: 50%;
-  left: -30px;
+  left: -16px;
   background-color: #141615;
-  padding: 3px 0;
+  padding-right: 5px;
+  padding-left: 3px;
   text-shadow: none;
   font-family: 'Comfortaa', sans-serif;
   transform: translate(-100%, -50%) rotate(-90deg);
@@ -457,23 +442,32 @@ input[type=range].sliderCustom:focus::-ms-fill-upper {
   border-bottom: none;
 }
 
-.btnToRect {
-  border-radius: 0px;
-}
-
 .btnRectCircle {
+
   position: absolute;
-  top: -40px;
-  left: -40px;
-  width: 10px;
-  height: 10px;
-  border: 1px solid var(--borderColor);
-  cursor: pointer;
+  right: 56px;
+  bottom: 16px;
+
 }
 
-.btnToCircle {
+.btnRectCircleIn {
+  border: white 2px dashed;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btnRectCircleInCircle {
   border-radius: 50%;
 }
+
+.optionBtn {
+  background-color: #141615;
+}
+
 
 .imgTextBoxShadow {
   box-shadow:

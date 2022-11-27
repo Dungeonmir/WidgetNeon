@@ -1,5 +1,5 @@
 # WidgetNeon
-![Интерфейс конструктора](https://i.ibb.co/4KD071B/Img-For-Github-Repo-1.png)
+[![Интерфейс конструктора](https://i.ibb.co/4KD071B/Img-For-Github-Repo-1.png)](https://dungeonmir.github.io/WidgetNeon/)
 Простой плагин, для создания шаблона неоновой вывески.
 
 # Зависимости

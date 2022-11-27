@@ -201,7 +201,7 @@ imgText.addEventListener("click", () => {
 const settingsTag = createTag(["settingsTag", "flexCenter"], "div", pluginBase);
 
 // Создание кнопки сохранения скриншота текста
-const imageSaveBtn = createTag(["saveBtn"], "button", imageTag);
+const imageSaveBtn = createTag(["saveBtn", "optionBtn", 'selectBtnStyleBtn'], "button", imageTag);
 //const canvasSave = createTag("", "canvas", pluginBase);
 //canvasSave.width = 500;
 //canvasSave.height = 500;
@@ -213,6 +213,9 @@ imageSaveBtn.addEventListener("click", (e) => {
   let linkForSafety = document.createElement("a");
   linkForSafety.href = "#imageTag";
   linkForSafety.click();
+
+
+
 
   imgTextDiv.style.margin = '150px'
   imgTextDiv.classList.remove("imgTextBoxShadow");
@@ -265,7 +268,7 @@ const selectFont = createTag(["flexAround"], "div", selectFontDiv);
 pluginData.textFonts.map((value, index) => {
   const fontOption = createTag(
     ["selectBtnStyleBtn", "flexCenter", "darkBtn"],
-    "btn",
+    "div",
     selectFont
   );
   fontOption.innerText = index + 1;
@@ -311,7 +314,7 @@ selectScale.addEventListener("input", (e) => {
 const selectColorDiv = createSettingsBlock("Цвет");
 const selectColor = createTag(["flexAround"], "div", selectColorDiv);
 pluginData.textColors.map((value) => {
-  const btn = createTag("selectBtnStyleBtn", "button", selectColor);
+  const btn = createTag("selectBtnStyleBtn", "div", selectColor);
   btn.value = value;
   btn.style.backgroundColor = value;
   btn.addEventListener("click", (e) => {
@@ -397,6 +400,10 @@ const focusOutHandler = (e) => {
   e.target.style.visibility = "hidden";
 };
 
+function pxToNumber(numberInPX) {
+  return parseInt(numberInPX, 10);
+}
+
 textSupportWidth.addEventListener("click", focusInHandler);
 textSupportWidthInput.addEventListener("focusout", focusOutHandler);
 textSupportHeight.addEventListener("click", focusInHandler);
@@ -404,24 +411,25 @@ textSupportHeightInput.addEventListener("focusout", focusOutHandler);
 textSupportHeightInput.type = "number";
 
 //Кнопка для смены вида подложки
-const btnToRect = createTag(['btnToCircle', 'btnRectCircle'], 'div', imgTextDiv)
+const btnToRect = createTag(['optionBtn', 'btnRectCircle', 'selectBtnStyleBtn'], 'button', imageTag)
+const figureInside = createTag(['btnRectCircleIn', 'btnRectCircleInCircle'], 'div', btnToRect)
 btnToRect.addEventListener('click', (() => {
-  if (btnToRect.classList.contains('btnToRect')) {
-    btnToRect.classList.remove('btnToRect')
-    btnToRect.classList.add('btnToCircle')
+  if (figureInside.classList.contains('btnRectCircleInCircle')) {
+    figureInside.classList.remove('btnRectCircleInCircle')
+
+    imgTextDiv.style.borderRadius = '50%'
+    makeRound()
+    updateTextSupportDimensions()
+  }
+  else {
+    figureInside.classList.add('btnRectCircleInCircle')
+
 
     imgTextDiv.style.borderRadius = '0px'
     imgTextDiv.style.height = ''
     imgTextDiv.style.width = ''
-    updateTextSupportDimensions()
-  }
-  else {
-    btnToRect.classList.remove('btnToCircle')
-    btnToRect.classList.add('btnToRect')
 
-    imgTextDiv.style.borderRadius = '50%'
-    imgTextDiv.style.height = window.getComputedStyle(imgTextDiv).width
-    imgTextDiv.style.width = window.getComputedStyle(imgTextDiv).width
+
     updateTextSupportDimensions()
   }
 }))
@@ -430,12 +438,33 @@ window.addEventListener("DOMContentLoaded", (event) => {
   updateTextSupportDimensions();
 });
 
+//make round w=h
+
+function makeRound() {
+  let w, h;
+  w = pxToNumber(window.getComputedStyle(imgTextDiv).width)
+  h = pxToNumber(window.getComputedStyle(imgTextDiv).height)
+  w > h ? h = w : w = h
+  imgTextDiv.style.width = w + 'px'
+  imgTextDiv.style.height = h + 'px'
+
+}
+
 //Обновление размера подложки
 function updateTextSupportDimensions() {
+  // Сделать w внутренним свойством
+  let insideW;
+  insideW = pxToNumber(window.getComputedStyle(imgTextDiv).width)
+  imgTextDiv.style.width = insideW + 'px'
+
   const realityScale = pluginData.currentData.realityScale;
+  if (!figureInside.classList.contains('btnRectCircleInCircle')) {
+    makeRound()
+  }
   let w, h;
   w = imgTextDiv.offsetWidth;
   h = imgTextDiv.offsetHeight;
+
   w *= realityScale;
   h *= realityScale;
   textSupportWidth.innerText = w + "мм";
