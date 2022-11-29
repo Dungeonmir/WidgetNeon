@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../fonts.css">
+</head>
+
+<body>
+    <div id="neonConstructorId"></div>
+    <div id="mocha"></div>
+
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+
+    <script class="mocha-init">
+        mocha.setup('bdd');
+        mocha.checkLeaks();
+    </script>
+    <script src="../script.js"></script>
+    <script>
+        describe('Тестирование функции  createTag(класс, div)', function () {
+            createTag('someCssClass', 'div', pluginBase)
+            const tag = document.getElementsByClassName('someCssClass')[0]
+
+            it('Созданный тег содержит тестовый класс', function () {
+                chai.assert.equal(tag.className, "someCssClass");
+            });
+            it('Созданный тег имеет тип Div', function () {
+                chai.assert.equal(tag.tagName, 'DIV');
+            });
+        })
+
+        describe('Тестирование функции createTag([класс, класс2], button)', function () {
+            const tag = createTag(['someCssClass312', 'someCssClass458'], 'button', pluginBase)
+
+            it('Созданный тег содержит класс 1', function () {
+                chai.assert.equal(tag.classList.contains('someCssClass312'), true);
+            });
+            it('Созданный тег содержит класс 2', function () {
+                chai.assert.equal(tag.classList.contains('someCssClass458'), true);
+            });
+            it('Количество добавленных тегов совпадает', function () {
+                chai.assert.equal(tag.classList.length, 2);
+            });
+            it('Созданный тег имеет тип Button', function () {
+                chai.assert.equal(tag.tagName, 'BUTTON');
+            });
+        })
+        describe('Тест шрифтов', function () {
+            it('Шрифт меняется после нажатия на кнопку шрифта', function () {
+                const text = document.getElementsByClassName('imgText')[0].children[0]
+                const fontButtons = [...document.getElementsByClassName('darkBtn')]
+                fontButtons.forEach((btn) => {
+                    btn.click()
+                    let fontValue = text.style.fontFamily
+                    let btnValue = btn.value
+                    fontValue = fontValue.replaceAll('"', '');
+                    fontValue = fontValue.replaceAll("'", "");
+                    btnValue = btnValue.replaceAll("'", "");
+                    chai.assert.equal(fontValue, btnValue);
+                })
+            })
+        })
+        describe('Тест подложки', function () {
+            const textDiv = document.getElementsByClassName('imgText')[0]
+            function getRadius() {
+                return window.getComputedStyle(textDiv).borderRadius
+            }
+            const btnCircle = document.getElementsByClassName('btnRectCircle')[0]
+            it('После нажатия на кнопку, обложка стала круглой', function () {
+                btnCircle.click()
+                chai.assert.equal(getRadius(), '50%');
+            })
+            it('После нажатия на кнопку, обложка стала прямоугольной', function () {
+                btnCircle.click()
+                chai.assert.equal(getRadius(), '0px');
+            })
+
+        })
+
+
+        describe('Тест ввода текста', function () {
+            const input = document.getElementsByClassName('inputStyle')[0]
+            it('Пустое поле имеет placeholder', function () {
+                chai.assert.equal(input.placeholder, 'Введите ваш текст');
+            });
+            it('При событии ввода в поле, этот же текст отображается на подложке', function () {
+                const values = [
+                    'Будем кружить, Петь и дружить.',
+                    'Утро зовёт Снова в поход.',
+                    'Глаз правдивых обаянье',
+                    'Сыграем в шашки?',
+                    '']
+                values.forEach((v) => {
+                    input.value = v
+                    const event = new Event('input');
+                    input.dispatchEvent(event)
+                    const text = document.getElementsByClassName('imgText')[0].children[0]
+                    chai.assert.equal(text.textContent, v)
+                })
+            })
+        })
+
+
+    </script>
+    <script class="mocha-exec" defer>
+        mocha.run()
+
+    </script>
+
+</body>
+
+</html>

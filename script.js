@@ -202,9 +202,7 @@ const settingsTag = createTag(["settingsTag", "flexCenter"], "div", pluginBase);
 
 // Создание кнопки сохранения скриншота текста
 const imageSaveBtn = createTag(["saveBtn", "optionBtn", 'selectBtnStyleBtn'], "button", imageTag);
-//const canvasSave = createTag("", "canvas", pluginBase);
-//canvasSave.width = 500;
-//canvasSave.height = 500;
+
 imageSaveBtn.innerHTML = pluginData.saveButton.icon;
 
 imageSaveBtn.addEventListener("click", (e) => {
@@ -213,8 +211,6 @@ imageSaveBtn.addEventListener("click", (e) => {
   let linkForSafety = document.createElement("a");
   linkForSafety.href = "#imageTag";
   linkForSafety.click();
-
-
 
 
   imgTextDiv.style.margin = '150px'
