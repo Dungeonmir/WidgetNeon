@@ -1,4 +1,4 @@
-//first release
+//new release
 // Точка монтирования
 const pluginBase = document.getElementById("neonContructorId");
 
