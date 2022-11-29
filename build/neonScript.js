@@ -138,6 +138,10 @@ styles.innerHTML = `
   --borderColor: rgb(244, 67, 54);
   --backColor: rgb(33, 33, 33);
   --textColor: #9e9e9e;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .pluginBase svg {
@@ -233,7 +237,14 @@ styles.innerHTML = `
   background-color: #141615;
 }
 
-
+.saveBtn svg {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .img {
   width: 100%;
@@ -314,6 +325,7 @@ styles.innerHTML = `
   width: 30px;
   height: 30px;
   margin: 2px;
+  padding: 0px;
   cursor: pointer;
   transition: all 0.25s;
 }
@@ -810,9 +822,7 @@ const settingsTag = createTag(["settingsTag", "flexCenter"], "div", pluginBase);
 
 // Создание кнопки сохранения скриншота текста
 const imageSaveBtn = createTag(["saveBtn", "optionBtn", 'selectBtnStyleBtn'], "button", imageTag);
-//const canvasSave = createTag("", "canvas", pluginBase);
-//canvasSave.width = 500;
-//canvasSave.height = 500;
+
 imageSaveBtn.innerHTML = pluginData.saveButton.icon;
 
 imageSaveBtn.addEventListener("click", (e) => {
@@ -821,8 +831,6 @@ imageSaveBtn.addEventListener("click", (e) => {
   let linkForSafety = document.createElement("a");
   linkForSafety.href = "#imageTag";
   linkForSafety.click();
-
-
 
 
   imgTextDiv.style.margin = '150px'
