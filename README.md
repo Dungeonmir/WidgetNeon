@@ -21,7 +21,7 @@ https://cdn.jsdelivr.net/gh/{GITHUB_USERNAME}/{ИмяРепозитория}@{В
 5. Полученную ссылку вставить и этот код скопировать в тильду
 ```html
 <div id="neonContructorId">
-<script scr="** Полученная ссылка**"></script>
+<script scr="ПолученнаяСсылка.js"></script>
 ```
 
 ## Известные проблемы
