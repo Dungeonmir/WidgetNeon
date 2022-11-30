@@ -18,7 +18,7 @@
 4. Сделать ссылку по шаблону
 https://cdn.jsdelivr.net/gh/{GITHUB_USERNAME}/{ИмяРепозитория}@{Версия}/{NeonScipt.js}
 Пример: https://cdn.jsdelivr.net/gh/Dungeonmir/WidgetNeon@1.0.2/neonScript.js
-5. Полученную ссылку вставить и этот код скопировать в тильду
+5. Полученную ссылку вставить в тег скрипта и следующий код скопировать в тильду
 ```html
 <div id="neonContructorId">
 <script scr="ПолученнаяСсылка.js"></script>
